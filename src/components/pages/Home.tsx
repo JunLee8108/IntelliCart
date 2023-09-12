@@ -1,10 +1,7 @@
 import "./Home.css";
-import { data } from "../utils/Data/data";
+import { CardData } from "../utils/Data/data";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRobot } from "@fortawesome/free-solid-svg-icons";
-import { faImage } from "@fortawesome/free-regular-svg-icons";
-import { faMoneyCheckDollar } from "@fortawesome/free-solid-svg-icons";
 
 export const Home: React.FC = () => {
   return (
@@ -17,13 +14,16 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="home-card-container display-flex">
-          {data.map((a, index) => {
+          {CardData.map((a, index) => {
             return (
               <div className="home-card-flexbox display-flex" key={index}>
                 <div className="home-card-flexbox-detail display-flex">
-                  <FontAwesomeIcon icon={data[index].icon} className="font" />
-                  <h3>{data[index].title}</h3>
-                  <p>{data[index].subtitle}</p>
+                  <FontAwesomeIcon
+                    icon={CardData[index].icon}
+                    className="font"
+                  />
+                  <h3>{CardData[index].title}</h3>
+                  <p>{CardData[index].subtitle}</p>
                 </div>
               </div>
             );
