@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faI, faRobot } from "@fortawesome/free-solid-svg-icons";
+import { faRobot } from "@fortawesome/free-solid-svg-icons";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
 import { faMoneyCheckDollar } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
@@ -11,7 +10,7 @@ type Cardtype = {
   subtitle: string;
 };
 
-const data: [Cardtype, Cardtype, Cardtype] = [
+const CardData: [Cardtype, Cardtype, Cardtype] = [
   {
     id: 0,
     icon: faRobot,
@@ -34,4 +33,4 @@ const data: [Cardtype, Cardtype, Cardtype] = [
   },
 ];
 
-export { data };
+export { CardData };

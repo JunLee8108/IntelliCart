@@ -1,5 +1,6 @@
 import "./App.css";
 import { Home } from "./components/pages/Home";
+import { Account } from "./components/pages/Account";
 import { Navbar } from "./components/utils/Navbar/Navbar";
 import { Footer } from "./components/utils/Footer/Footer";
 
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
       <Footer />
     </>

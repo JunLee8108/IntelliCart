@@ -38,7 +38,8 @@
 }
 
 .navbar-title,
-.navbar-item {
+.navbar-item,
+.navbar-item-search {
   list-style-type: none;
 }
 
@@ -46,6 +47,22 @@
 .navbar-item:hover {
   color: orange;
   transition: all 0.2s;
+}
+
+.navbar-magnifying-glass {
+  margin-right: 8px;
+}
+
+.navbar-search-input {
+  width: 50%;
+  height: 25px;
+  transition: all 0.2s;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.navbar-search-input:focus {
+  width: 80%;
 }
 
 @media screen and (max-width: 767px) {
