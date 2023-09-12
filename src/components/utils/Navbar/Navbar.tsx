@@ -1,13 +1,14 @@
 import "./Navbar.css";
 
-//
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 export const Navbar: React.FC = () => {
+  const navbarItem: string[] = ["Shop", "Account", "Cart", "About"];
+
   const navigate = useNavigate();
+  const handleNavbar = () => {};
 
   return (
     <>
@@ -24,17 +25,18 @@ export const Navbar: React.FC = () => {
         </ul>
 
         <ul className="navbar-item-flexbox display-flex">
-          <li className="navbar-item cursor-pointer">Shop</li>
-          <li
-            className="navbar-item cursor-pointer"
-            onClick={() => {
-              navigate("/account");
-            }}
-          >
-            Account
-          </li>
-          <li className="navbar-item cursor-pointer">Cart</li>
-          <li className="navbar-item cursor-pointer">About</li>
+          {navbarItem.map((a, index) => {
+            return (
+              <li
+                className="navbar-item cursor-pointer"
+                onClick={() => {
+                  navigate(`/${navbarItem[index].toLocaleLowerCase()}`);
+                }}
+              >
+                {navbarItem[index]}
+              </li>
+            );
+          })}
           <li className="navbar-item-search">
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
