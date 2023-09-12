@@ -10,7 +10,7 @@ type Cardtype = {
   subtitle: string;
 };
 
-const CardData: [Cardtype, Cardtype, Cardtype] = [
+const CardData: Cardtype[] = [
   {
     id: 0,
     icon: faRobot,
