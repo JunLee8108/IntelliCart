@@ -1,0 +1,60 @@
+/* Common Use */
+.display-flex {
+  display: flex;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.navbar {
+  justify-content: center;
+  width: 100%;
+  /* max-width: 1920px; */
+  height: 65px;
+  /* background: radial-gradient(
+    circle at 12.3% 19.3%,
+    rgb(85, 88, 218) 0%,
+    rgb(95, 209, 249) 150.2%
+  ); */
+  color: black;
+}
+
+.navbar-title-flexbox {
+  width: 20%;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar-item-flexbox {
+  width: 80%;
+  gap: 40px;
+  justify-content: flex-end;
+  padding-right: 50px;
+  align-items: center;
+  font-size: 15px;
+}
+
+.navbar-title,
+.navbar-item {
+  list-style-type: none;
+}
+
+.navbar-title:hover,
+.navbar-item:hover {
+  color: orange;
+  transition: all 0.2s;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-title-flexbox {
+    width: 100%;
+    margin-left: -25px;
+  }
+
+  .navbar-item-flexbox {
+    display: none;
+  }
+}
