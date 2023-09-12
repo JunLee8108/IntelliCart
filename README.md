@@ -1,6 +1,4 @@
-#AI-Powered E-Commerce shop 'IntelliCart'
-
-IntelliCart
+# AI-Powered E-Commerce shop 'IntelliCart'
 
 ⭐ We've seamlessly integrated the latest in machine learning technology to provide a personalized, efficient, and futuristic shopping experience. Whether you're looking for product recommendations tailored just for you, voice-activated searches, or real-time customer service through our intelligent chatbot, IntelliCart is designed to transform how you shop online.
 
