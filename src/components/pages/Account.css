@@ -11,6 +11,151 @@ div {
 }
 
 .login {
+  width: 80%;
+  max-width: 900px;
+  box-shadow: 10px 10px 20px rgba(35, 35, 186, 0.2);
+}
+
+.login-logo {
+  width: 67%;
+  background-image: url("../../../public//imgs/logo/intelliCart.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-form {
+  width: 33%;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.login-form label {
+  font-weight: bold;
+  color: #3e2723;
+}
+
+.login-form form label:nth-child(1) {
+  padding-top: 30px;
+}
+
+.login-form form input {
+  border-radius: 5px;
+  width: 87%;
+  height: 30px;
+}
+
+.login-forgort-password {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  color: navy;
+  cursor: pointer;
+}
+
+.login-form button {
+  cursor: pointer;
+  color: white;
+  width: 90%;
+  height: 50px;
+  border: none;
+  background-color: black;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.login-form button:hover {
+  color: red;
+  transition: all 0.15s linear;
+}
+
+.login-form button:not(:hover) {
+  color: white;
+  transition: all 0.15s linear;
+}
+
+.line {
+  width: 90%;
+  padding-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  border-top: 2px solid grey;
+  text-align: center;
+}
+
+.login-register {
+  padding-bottom: 30px;
+}
+
+.login-register .underline {
+  text-decoration: underline;
+  color: navy;
+  cursor: pointer;
+}
+
+.login-forgort-password:hover,
+.login-register .underline:hover {
+  color: red;
+  transition: all 0.15s linear;
+}
+
+.login-forgort-password:not(:hover),
+.login-register .underline:not(:hover) {
+  color: navy;
+  transition: all 0.15s linear;
+}
+
+@media screen and (max-width: 767px) {
+  .login {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .login-logo {
+    width: 100%;
+    height: 100px;
+    margin-bottom: -30px;
+    background-size: 70%;
+  }
+
+  .login-form {
+    width: 100%;
+  }
+
+  .login-form form {
+    align-items: center;
+  }
+
+  .login-form form input {
+    width: 50%;
+  }
+
+  .login-form button {
+    width: 25%;
+    font-size: 11px;
+    border-radius: 5px;
+  }
+
+  .line {
+    width: 65%;
+    padding-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    border-top: 2px solid grey;
+    text-align: center;
+  }
+
+  .login-form p {
+    font-size: 14px;
+  }
+}
+
+/* .login {
   display: flex;
   justify-content: center;
   max-width: 420px;
@@ -49,13 +194,6 @@ form button:hover {
   opacity: 0.5;
 }
 
-/* input[type="password"],
-input[type="text"] {
-  width: 100%;
-  height: 30px;
-  border-radius: 5px;
-} */
-
 .line {
   width: 100%;
   padding-top: 10px;
@@ -71,4 +209,4 @@ input[type="text"] {
 
 .underline:hover {
   color: red;
-}
+} */

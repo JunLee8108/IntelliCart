@@ -228,6 +228,7 @@
 
 .home-startBtn button:not(:hover) {
   color: white;
+  transform: translateY(0%);
   transition: all 0.2s linear;
 }
 
@@ -329,5 +330,10 @@
     display: block;
     width: 80%;
     line-height: 40px;
+  }
+
+  .home-startBtn button {
+    width: 180px;
+    height: 50px;
   }
 }

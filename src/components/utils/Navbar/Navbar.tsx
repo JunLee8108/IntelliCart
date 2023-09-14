@@ -74,7 +74,7 @@ export const Navbar: React.FC = () => {
         </ul>
 
         <ul className="navbar-mobile-menu">
-          {isClickMobileMenu ? (
+          {handleMobileModal ? (
             <button
               onClick={() => {
                 setHandleMobileModal(false);
