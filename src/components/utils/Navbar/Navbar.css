@@ -10,7 +10,9 @@
 .navbar {
   justify-content: center;
   width: 100%;
-  /* max-width: 1920px; */
+  max-width: 2560px;
+  margin-left: auto;
+  margin-right: auto;
   height: 65px;
   /* background: radial-gradient(
     circle at 12.3% 19.3%,
