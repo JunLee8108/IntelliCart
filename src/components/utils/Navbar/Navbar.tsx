@@ -13,6 +13,7 @@ export const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isClickMobileMenu, clickMobileMenu] = useState(false);
+  const [handleMobileModal, setHandleMobileModal] = useState(false);
 
   const clearNavbar = () => {
     const handleLi = document.querySelectorAll<HTMLElement>(".navbar-item");
@@ -38,6 +39,21 @@ export const Navbar: React.FC = () => {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    if (handleMobileModal) {
+      clickMobileMenu(true);
+    } else if (!handleMobileModal) {
+      timer = setTimeout(() => {
+        clickMobileMenu(false);
+      }, 300);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [handleMobileModal]);
+
   return (
     <>
       <nav className="navbar display-flex">
@@ -47,12 +63,13 @@ export const Navbar: React.FC = () => {
             onClick={() => {
               navigate("/");
               clearNavbar();
-              if (isClickMobileMenu) {
-                clickMobileMenu(false);
+              if (handleMobileModal) {
+                setHandleMobileModal(false);
+                document.body.style.overflow = "unset";
               }
             }}
           >
-            IntelliCart.
+            IntelliCart
           </li>
         </ul>
 
@@ -60,7 +77,8 @@ export const Navbar: React.FC = () => {
           {isClickMobileMenu ? (
             <button
               onClick={() => {
-                clickMobileMenu(false);
+                setHandleMobileModal(false);
+                document.body.style.overflow = "unset";
               }}
             >
               <FontAwesomeIcon icon={faCircleXmark} size="xl"></FontAwesomeIcon>
@@ -68,7 +86,8 @@ export const Navbar: React.FC = () => {
           ) : (
             <button
               onClick={() => {
-                clickMobileMenu(true);
+                setHandleMobileModal(true);
+                document.body.style.overflow = "hidden";
               }}
             >
               <FontAwesomeIcon icon={faBars} size="lg"></FontAwesomeIcon>
@@ -106,7 +125,10 @@ export const Navbar: React.FC = () => {
       </nav>
 
       {isClickMobileMenu ? (
-        <NavbarModal clickMobileMenu={clickMobileMenu} />
+        <NavbarModal
+          handleMobileModal={handleMobileModal}
+          setHandleMobileModal={setHandleMobileModal}
+        />
       ) : null}
     </>
   );

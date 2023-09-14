@@ -118,7 +118,7 @@
 .home-card-description h2 {
   width: 60%;
   max-width: 1200px;
-  border-left: 4px solid black;
+  border-left: 4px solid green;
   padding-left: 15px;
   letter-spacing: 2px;
 }
