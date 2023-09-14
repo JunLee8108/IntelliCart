@@ -134,17 +134,17 @@
 
 .home-card-container {
   gap: 20px;
+  width: 100%;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
-  /* background-color: red; */
 }
 
 .home-card-flexbox {
   position: relative;
   width: 23%;
-  max-width: 500px;
+  max-width: 550px;
   height: auto;
   gap: 20px;
   align-items: center;
@@ -170,11 +170,6 @@
 
 .home-card-flexbox-detail p {
   display: none;
-}
-
-.home-card-flexbox-detail p {
-  line-height: 30px;
-  font-size: 15px;
 }
 
 .home-card-fontAwesomeIcon {
@@ -250,6 +245,49 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
+  .home-card-description-laptop {
+    display: none;
+  }
+
+  .home-card-description-mobile {
+    display: block;
+    width: 80%;
+    font-size: 18px;
+    line-height: 45px;
+  }
+
+  .home-card-description h2 {
+    font-size: 25px;
+    width: 80%;
+    max-width: 1200px;
+    border-left: 4px solid green;
+    padding-left: 15px;
+    letter-spacing: 2px;
+  }
+
+  .home-card-container {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: unset;
+  }
+
+  .home-card-flexbox {
+    width: 80%;
+    max-width: 650px;
+    gap: unset;
+  }
+
+  .home-card-flexbox-detail {
+    width: 100%;
+    box-shadow: 10px 10px 20px rgba(19, 60, 202, 0.2);
+  }
+
+  .home-card-flexbox-detail p {
+    display: block;
+    width: 70%;
+    line-height: 40px;
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -295,42 +333,23 @@
   }
 
   .home-card-container {
-    gap: 20px;
-    max-width: 1920px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    /* background-color: red; */
     flex-wrap: wrap;
+    gap: 10px;
   }
 
   .home-card-flexbox {
-    position: relative;
     width: 90%;
-    max-width: 500px;
-    height: auto;
-    gap: 20px;
-    align-items: center;
-    flex-direction: column;
-    /* background-color: yellow; */
   }
 
   .home-card-flexbox-detail {
-    width: 100%;
-    height: 100%;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 100px;
-    padding-bottom: 100px;
     box-shadow: 10px 10px 20px rgba(19, 60, 202, 0.2);
-    /* background-color: blue; */
   }
 
   .home-card-flexbox-detail p {
     display: block;
     width: 80%;
     line-height: 40px;
+    font-size: 15px;
   }
 
   .home-startBtn button {
