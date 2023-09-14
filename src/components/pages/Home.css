@@ -197,11 +197,38 @@
   /* padding-top: 80px; */
   background-color: white;
   flex-direction: column;
-  transform: rotateY(50deg);
+  transform: rotateY(40deg);
 }
 
 .home-card-flexbox-detail-hover p {
   line-height: 40px;
+}
+
+.home-startBtn {
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.home-startBtn button {
+  border-radius: 50px;
+  width: 200px;
+  height: 60px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  background-color: black;
+  cursor: pointer;
+}
+
+.home-startBtn button:hover {
+  color: red;
+  transition: all 0.2s linear;
+  transform: translateY(-10%);
+}
+
+.home-startBtn button:not(:hover) {
+  color: white;
+  transition: all 0.2s linear;
 }
 
 @media (hover: hover) {
