@@ -127,7 +127,7 @@ export const Home: React.FC = () => {
         <div className="home-startBtn display-flex">
           <button
             onClick={() => {
-              navigate("/account");
+              navigate("/account/login");
             }}
           >
             START INTELIICART

@@ -26,7 +26,7 @@ function App() {
           <Routes location={location}>
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
-            <Route path="/account" element={<Account />} />
+            <Route path="/account/:category" element={<Account />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </Fade>

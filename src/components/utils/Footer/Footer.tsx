@@ -20,7 +20,11 @@ export const Footer: React.FC = () => {
             return (
               <li
                 onClick={() => {
-                  navigate(`/${navbarItem[index].toLocaleLowerCase()}`);
+                  if (navbarItem[index].toLocaleLowerCase() === "account") {
+                    navigate(`/${navbarItem[index].toLocaleLowerCase()}/login`);
+                  } else {
+                    navigate(`/${navbarItem[index].toLocaleLowerCase()}`);
+                  }
                 }}
                 key={index}
               >
