@@ -91,7 +91,7 @@ export const Navbar: React.FC = () => {
               </li>
             );
           })}
-          <li className="navbar-item-search">
+          {/* <li className="navbar-item-search">
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               className="navbar-magnifying-glass"
@@ -101,7 +101,7 @@ export const Navbar: React.FC = () => {
               placeholder="Search.."
               className="navbar-search-input"
             ></input>
-          </li>
+          </li> */}
         </ul>
       </nav>
 

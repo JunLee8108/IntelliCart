@@ -22,7 +22,10 @@ export const Home: React.FC = () => {
           if (bg1H1 !== null && bg2H1 !== null) {
             timer2 = setTimeout(() => {
               bg1H1.style.opacity = "0";
+              bg1H1.style.animation = "none";
               bg2H1.style.opacity = "1";
+              bg2H1.style.animation =
+                "typing2 2s steps(20), cursor2 1s steps(1) infinite";
             }, 1000);
           }
           count += 1;
@@ -33,13 +36,16 @@ export const Home: React.FC = () => {
           if (bg1H1 !== null && bg2H1 !== null) {
             timer2 = setTimeout(() => {
               bg1H1.style.opacity = "1";
+              bg1H1.style.animation =
+                "typing 3s steps(40), cursor 1s steps(1) infinite";
               bg2H1.style.opacity = "0";
+              bg2H1.style.animation = "none";
             }, 1000);
           }
           count -= 1;
         }
       }
-    }, 6000);
+    }, 8000);
 
     return () => {
       clearTimeout(timer);
