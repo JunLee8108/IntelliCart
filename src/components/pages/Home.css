@@ -11,7 +11,7 @@
 
 .bg-setting {
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,7 +20,7 @@
 }
 
 .home-top-bg1 {
-  /* background-image: url(../../../public/imgs/bg/bg-1.webp); */
+  /* background-image: url(../../../public/imgs/bg/bg-3.webp); */
   /* background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%); */
   /* background: linear-gradient(to top, #dfe9f3 0%, white 100%); */
   background-color: black;
@@ -28,11 +28,28 @@
   transition: 0.7s ease-out;
 }
 
+/* .home-top-bg1::before,
+.home-top-bg2::before {
+  position: absolute;
+  content: "";
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+} */
+
 .home-top-bg1 h1 {
   opacity: 1;
   transition: 0.7s ease-out;
-  color: white;
+  color: #39ff14;
+  font-size: 40px;
   letter-spacing: 3px;
+  width: 23ch;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.05em solid #39ff14;
+  animation: typing 3s steps(40), cursor 1s steps(1) infinite;
 }
 
 .home-top-bg2 {
@@ -48,24 +65,45 @@
 .home-top-bg2 h1 {
   opacity: 0;
   transition: 0.7s ease-out;
-  color: white;
+  color: #39ff14;
   font-size: 50px;
   letter-spacing: 5px;
+  width: 10.5ch;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.05em solid #39ff14;
+  /* animation: typing2 3s steps(40), cursor2 1s steps(1) infinite; */
 }
 
-.home-top-bg .home-top-title {
-  letter-spacing: 7px;
+@keyframes typing {
+  from {
+    width: 0;
+  }
 }
 
-.home-top-subtitle {
-  letter-spacing: 4px;
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing2 {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes cursor2 {
+  50% {
+    border-color: transparent;
+  }
 }
 
 .home-card-title {
   justify-content: center;
   align-items: center;
   padding-top: 50px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .home-card-description {
@@ -73,8 +111,7 @@
   justify-content: center;
   align-items: center;
   line-height: 50px;
-  padding-top: 50px;
-  padding-bottom: 20px;
+  padding-top: 20px;
   /* background-color: red; */
 }
 
@@ -143,6 +180,7 @@
 .home-card-fontAwesomeIcon {
   width: 60px;
   height: 60px;
+  color: black;
 }
 
 .home-card-flexbox-detail-hover {
@@ -193,10 +231,12 @@
 
   .home-top-bg1 h1 {
     font-size: 20px;
+    width: 26ch;
   }
 
   .home-top-bg2 h1 {
     font-size: 30px;
+    width: 12ch;
   }
 
   .home-card-title {
@@ -256,5 +296,11 @@
     padding-bottom: 100px;
     box-shadow: 10px 10px 20px rgba(19, 60, 202, 0.2);
     /* background-color: blue; */
+  }
+
+  .home-card-flexbox-detail p {
+    display: block;
+    width: 80%;
+    line-height: 40px;
   }
 }
