@@ -26,6 +26,7 @@
   align-items: center;
   font-weight: bold;
   font-size: 20px;
+  letter-spacing: 3px;
 }
 
 .navbar-item-flexbox {
@@ -34,7 +35,8 @@
   justify-content: flex-end;
   padding-right: 50px;
   align-items: center;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .navbar-title,
@@ -45,8 +47,18 @@
 
 .navbar-title:hover,
 .navbar-item:hover {
-  color: orange;
+  color: orange !important;
   transition: all 0.2s;
+}
+
+.navbar-title:not(:hover) {
+  color: black;
+  transition: all 0.4s;
+}
+
+.navbar-item:not(:hover) {
+  color: black;
+  transition: all 0.4s;
 }
 
 .navbar-magnifying-glass {
@@ -65,10 +77,33 @@
   width: 80%;
 }
 
+/* For Mobile */
+.navbar-mobile-menu {
+  display: none;
+}
+
 @media screen and (max-width: 767px) {
   .navbar-title-flexbox {
-    width: 100%;
+    width: 50%;
     margin-left: -25px;
+    letter-spacing: 1px;
+    font-size: 15px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .navbar-mobile-menu {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .navbar-mobile-menu button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
   }
 
   .navbar-item-flexbox {

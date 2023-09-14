@@ -29,8 +29,11 @@ const CardData: Cardtype[] = [
     id: 0,
     icon: faMoneyCheckDollar,
     title: "Dynamic Pricing",
-    subtitle: "AI-powered IntelliCart ensures you always get the best deal.",
+    subtitle:
+      "AI-powered IntelliCart not only analyzes your image to find the best product but also ensures you always get the best deal.",
   },
 ];
 
-export { CardData };
+const navbarItem: string[] = ["SHOP", "ACCOUNT", "CART"];
+
+export { CardData, navbarItem };
