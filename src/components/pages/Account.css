@@ -5,6 +5,7 @@ div {
 .account-container {
   width: 100%;
   display: flex;
+  min-height: calc(100vh - 10rem);
   justify-content: center;
 }
 
@@ -41,12 +42,12 @@ form button:hover {
   opacity: 0.5;
 }
 
-input[type="password"],
+/* input[type="password"],
 input[type="text"] {
   width: 100%;
   height: 30px;
   border-radius: 5px;
-}
+} */
 
 .line {
   width: 100%;
