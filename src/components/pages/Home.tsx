@@ -2,9 +2,12 @@ import "./Home.css";
 import { CardData } from "../utils/Data/data";
 import { useEffect } from "react";
 
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Home: React.FC = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     let count = 0;
     let timer2: ReturnType<typeof setTimeout>;
@@ -119,6 +122,16 @@ export const Home: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="home-startBtn display-flex">
+          <button
+            onClick={() => {
+              navigate("/account");
+            }}
+          >
+            START INTELIICART
+          </button>
         </div>
       </div>
     </>
