@@ -42,7 +42,13 @@ export const NavbarModal: React.FC<Props> = ({
               return (
                 <li
                   onClick={() => {
-                    navigate(`/${navbarItem[index].toLocaleLowerCase()}`);
+                    if (navbarItem[index].toLocaleLowerCase() === "account") {
+                      navigate(
+                        `/${navbarItem[index].toLocaleLowerCase()}/login`
+                      );
+                    } else {
+                      navigate(`/${navbarItem[index].toLocaleLowerCase()}`);
+                    }
                     setHandleMobileModal(false);
                     document.body.style.overflow = "unset";
                   }}

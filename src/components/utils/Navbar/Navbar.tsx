@@ -28,7 +28,7 @@ export const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
-    const accurateLocation = location.pathname.substring(1);
+    const accurateLocation = location.pathname.substring(1, 8);
     const handleLi = document.querySelectorAll<HTMLElement>(".navbar-item");
     for (let i = 0; i < handleLi.length; i++) {
       if (accurateLocation === handleLi[i].innerHTML.toLocaleLowerCase()) {
@@ -101,7 +101,12 @@ export const Navbar: React.FC = () => {
               <li
                 className="navbar-item cursor-pointer"
                 onClick={(e) => {
-                  navigate(`/${navbarItem[index].toLocaleLowerCase()}`);
+                  if (navbarItem[index].toLocaleLowerCase() === "account") {
+                    navigate(`/${navbarItem[index].toLocaleLowerCase()}/login`);
+                  } else {
+                    navigate(`/${navbarItem[index].toLocaleLowerCase()}`);
+                  }
+
                   handleNavbar(e);
                 }}
                 key={index}
