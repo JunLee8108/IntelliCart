@@ -48,7 +48,7 @@ export const Home: React.FC = () => {
           count -= 1;
         }
       }
-    }, 8000);
+    }, 7000);
 
     return () => {
       clearTimeout(timer);
