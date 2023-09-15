@@ -28,7 +28,7 @@ export const Home: React.FC = () => {
               bg1H1.style.animation = "none";
               bg2H1.style.opacity = "1";
               bg2H1.style.animation =
-                "typing2 2s steps(20), cursor2 1s steps(1) infinite";
+                "typing2 1.5s steps(25), cursor2 1s steps(1) infinite";
             }, 1000);
           }
           count += 1;
@@ -40,7 +40,7 @@ export const Home: React.FC = () => {
             timer2 = setTimeout(() => {
               bg1H1.style.opacity = "1";
               bg1H1.style.animation =
-                "typing 3s steps(40), cursor 1s steps(1) infinite";
+                "typing 2.3s steps(40), cursor 1s steps(1) infinite";
               bg2H1.style.opacity = "0";
               bg2H1.style.animation = "none";
             }, 1000);
@@ -48,7 +48,7 @@ export const Home: React.FC = () => {
           count -= 1;
         }
       }
-    }, 7000);
+    }, 6500);
 
     return () => {
       clearTimeout(timer);
