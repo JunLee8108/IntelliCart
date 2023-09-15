@@ -17,6 +17,7 @@ import Fade from "./components/utils/Helpers/Fade";
 
 function App() {
   const location = useLocation() as any;
+
   return (
     <>
       <ScrollToTop />
