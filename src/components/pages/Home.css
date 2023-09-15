@@ -49,7 +49,7 @@
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.05em solid #39ff14;
-  animation: typing 3s steps(40), cursor 1s steps(1) infinite;
+  animation: typing 2.3s steps(40), cursor 1s steps(1) infinite;
 }
 
 .home-top-bg2 {
@@ -299,6 +299,7 @@
   .home-top-bg1 h1 {
     font-size: 20px;
     width: 26ch;
+    animation: typing 2.3s steps(40), cursor 1s steps(1) infinite;
   }
 
   .home-top-bg2 h1 {

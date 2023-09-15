@@ -1,5 +1,5 @@
 import "./Account.css";
-import {useState, ChangeEvent} from "react";
+import { useState } from "react";
 import axios from "axios";
 import React from "react";
 
@@ -13,12 +13,12 @@ export const Account: React.FC = () => {
   const { category } = useParams();
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-      e.preventDefault();
-      const {data} = await axios.post("/register", {username, password});
+    e.preventDefault();
+    const { data } = await axios.post("/register", { username, password });
   }
 
   if (category === "login") {
@@ -32,18 +32,23 @@ export const Account: React.FC = () => {
                 <label htmlFor="loginID">
                   <p>ID</p>
                 </label>
-                <input value={username}
-                       onChange={e => setUsername(e.target.value)}
-                       type="text"
-                       placeholder= "Enter your user Id"
-                       id="loginID"></input>
+                <input
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  type="text"
+                  placeholder="Enter your user ID"
+                  id="loginID"
+                ></input>
                 <label htmlFor="loginPW">
                   <p>Password</p>
                 </label>
-                <input value={password}
-                       onChange={e=> setPassword(e.target.value)}
-                       placeholder="Enter your password"
-                       type="password" id="loginPW"></input>
+                <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  type="password"
+                  id="loginPW"
+                ></input>
                 <p
                   className="login-forgort-password"
                   onClick={() => {
