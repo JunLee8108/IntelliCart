@@ -4,6 +4,12 @@ export const Register: React.FC = () => {
   return (
     <>
       <div className="register-container display-flex">
+        <div className="register-introduction">
+          <p>
+            Welcome to IntelliCart, where cutting-edge AI meets the world of
+            e-commerce.
+          </p>
+        </div>
         <div className="register-form">
           <div className="register-form-title">
             <h4>Profile</h4>
