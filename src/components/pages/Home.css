@@ -45,7 +45,7 @@
   color: #39ff14;
   font-size: 40px;
   letter-spacing: 3px;
-  width: 23.2ch;
+  width: 24.6ch;
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.05em solid #39ff14;
@@ -68,7 +68,7 @@
   color: #39ff14;
   font-size: 50px;
   letter-spacing: 5px;
-  width: 10.5ch;
+  width: 11.2ch;
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.05em solid #39ff14;
@@ -121,11 +121,13 @@
   border-left: 4px solid green;
   padding-left: 15px;
   letter-spacing: 2px;
+  font-size: 30px;
 }
 
 .home-card-description-laptop {
   width: 60%;
   max-width: 1200px;
+  font-size: 18px;
 }
 
 .home-card-description-mobile {
@@ -187,13 +189,12 @@
   justify-content: flex-start;
   align-items: center;
   /* padding: 30px; */
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 50px;
+  padding-right: 50px;
   padding-top: 20px;
   /* padding-top: 80px; */
   background-color: white;
   flex-direction: column;
-  transform: rotateY(20deg);
   box-shadow: 10px 10px 20px rgba(19, 60, 202, 0.2);
 }
 
@@ -234,13 +235,13 @@
     opacity: 1;
     transition: all 0.3s linear;
     /* box-shadow: 10px 10px 20px rgba(202, 19, 47, 0.2); */
-    transform: rotateY(0deg);
+    transform: translateY(0%);
   }
 
   .home-card-flexbox-detail-hover:not(:hover) {
     opacity: 0;
     transition: all 0.3s linear;
-    transform: rotateY(20deg);
+    transform: translateY(-3%);
   }
 }
 
@@ -298,13 +299,13 @@
 
   .home-top-bg1 h1 {
     font-size: 20px;
-    width: 26ch;
+    width: 27.4ch;
     animation: typing 2s steps(40), cursor 1s steps(1) infinite;
   }
 
   .home-top-bg2 h1 {
     font-size: 30px;
-    width: 12ch;
+    width: 12.5ch;
   }
 
   .home-card-title {

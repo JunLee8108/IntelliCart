@@ -1,3 +1,7 @@
 .cart-container {
   min-height: calc(100vh - 10rem);
 }
+
+.cart-title {
+  text-align: center;
+}

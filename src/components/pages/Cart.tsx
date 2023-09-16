@@ -4,7 +4,13 @@ export const Cart: React.FC = () => {
   return (
     <>
       <div className="cart-container">
-        <h1>Cart</h1>
+        <div className="cart-title">
+          <h3>Your Cart</h3>
+        </div>
+
+        <div className="cart-table">
+          <table></table>
+        </div>
       </div>
     </>
   );
