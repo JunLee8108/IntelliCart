@@ -46,8 +46,9 @@ div {
 
 .login-form form input {
   border-radius: 5px;
+  border: 2px solid gray;
   width: 87%;
-  height: 30px;
+  height: 35px;
   font-size: 15px;
 }
 
@@ -149,6 +150,7 @@ div {
 
   .login-form form input {
     width: 50%;
+    height: 30px;
   }
 
   .login-form button {
