@@ -15,7 +15,7 @@ div {
   box-sizing: border-box;
 }
 
-p,
+/* p,
 h6,
 h5,
 h4,
@@ -25,4 +25,4 @@ h1,
 span,
 li {
   transform: rotate(0.04deg);
-}
+} */

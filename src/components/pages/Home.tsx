@@ -40,7 +40,7 @@ export const Home: React.FC = () => {
             timer2 = setTimeout(() => {
               bg1H1.style.opacity = "1";
               bg1H1.style.animation =
-                "typing 2.3s steps(40), cursor 1s steps(1) infinite";
+                "typing 2.2s steps(40), cursor 1s steps(1) infinite";
               bg2H1.style.opacity = "0";
               bg2H1.style.animation = "none";
             }, 1000);

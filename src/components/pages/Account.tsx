@@ -29,15 +29,16 @@ export const Account: React.FC = () => {
             <div className="login-logo"></div>
             <div className="login-form">
               <form onSubmit={handleSubmit}>
-                <label htmlFor="loginID">
-                  <p>ID</p>
+                <label htmlFor="loginEmail">
+                  <p>Email</p>
                 </label>
                 <input
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  type="text"
-                  placeholder="Enter your user ID"
-                  id="loginID"
+                  type="email"
+                  placeholder="Email*"
+                  id="loginEmail"
+                  required
                 ></input>
                 <label htmlFor="loginPW">
                   <p>Password</p>
@@ -45,9 +46,10 @@ export const Account: React.FC = () => {
                 <input
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your password"
+                  placeholder="Password*"
                   type="password"
                   id="loginPW"
+                  required
                 ></input>
                 <p
                   className="login-forgort-password"
