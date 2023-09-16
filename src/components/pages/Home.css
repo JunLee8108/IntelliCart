@@ -260,10 +260,6 @@
   .home-card-description h2 {
     font-size: 25px;
     width: 80%;
-    max-width: 1200px;
-    border-left: 4px solid green;
-    padding-left: 15px;
-    letter-spacing: 2px;
   }
 
   .home-card-container {
