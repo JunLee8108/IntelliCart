@@ -44,12 +44,21 @@
 .navbar-item,
 .navbar-item-search {
   list-style-type: none;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid transparent;
 }
 
-.navbar-title:hover,
-.navbar-item:hover {
-  color: orange !important;
+.navbar-title:hover {
+  color: #00a800 !important;
   transition: all 0.2s;
+}
+
+.navbar-item:hover {
+  color: #00a800 !important;
+  transition: all 0.2s;
+  border-bottom: 2px solid #00a800 !important;
 }
 
 .navbar-title:not(:hover) {
@@ -60,6 +69,7 @@
 .navbar-item:not(:hover) {
   color: black;
   transition: all 0.4s;
+  border-bottom: 2px solid transparent;
 }
 
 .navbar-magnifying-glass {

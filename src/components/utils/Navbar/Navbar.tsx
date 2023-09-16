@@ -19,12 +19,14 @@ export const Navbar: React.FC = () => {
     const handleLi = document.querySelectorAll<HTMLElement>(".navbar-item");
     for (let i = 0; i < handleLi.length; i++) {
       handleLi[i].style.color = "black";
+      handleLi[i].style.borderBottom = "2px solid transparent";
     }
   };
 
   const handleNavbar = (e: MouseEvent<HTMLElement>) => {
     clearNavbar();
-    e.currentTarget.style.color = "orange";
+    e.currentTarget.style.color = "#00a800";
+    e.currentTarget.style.borderBottom = "2px solid #00a800";
   };
 
   useEffect(() => {
@@ -32,9 +34,11 @@ export const Navbar: React.FC = () => {
     const handleLi = document.querySelectorAll<HTMLElement>(".navbar-item");
     for (let i = 0; i < handleLi.length; i++) {
       if (accurateLocation === handleLi[i].innerHTML.toLocaleLowerCase()) {
-        handleLi[i].style.color = "orange";
+        handleLi[i].style.color = "#00a800";
+        handleLi[i].style.borderBottom = "2px solid #00a800";
       } else {
         handleLi[i].style.color = "black";
+        handleLi[i].style.borderBottom = "2px solid transparent";
       }
     }
   }, [location.pathname]);
