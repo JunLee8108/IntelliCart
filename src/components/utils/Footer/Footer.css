@@ -22,7 +22,7 @@
 }
 
 .footer li:hover {
-  color: orange;
+  color: #00a800;
   transition: all 0.2s;
 }
 
