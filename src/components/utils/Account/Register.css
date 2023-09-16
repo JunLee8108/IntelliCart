@@ -1,14 +1,25 @@
 .register-container {
   min-height: calc(100vh - 10rem);
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register-introduction {
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+.register-introduction p {
+  color: grey;
+  font-weight: 500;
 }
 
 .register-form {
   width: 30%;
-
   max-width: 500px;
   box-shadow: 10px 10px 20px rgba(35, 35, 186, 0.2);
+  margin-bottom: 40px;
 }
 
 .register-form-title {
@@ -108,8 +119,21 @@
     align-items: center;
   }
 
+  .register-introduction {
+    width: 70%;
+    margin-bottom: 0px;
+  }
+
+  .register-introduction p {
+    color: grey;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 30px;
+  }
+
   .register-form {
     width: 90%;
+    margin-bottom: 0px;
   }
 
   .register-form-title h4 {
