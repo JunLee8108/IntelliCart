@@ -36,7 +36,7 @@ div {
 }
 
 .login-form label {
-  font-weight: bold;
+  font-weight: 500;
   color: #3e2723;
 }
 
@@ -50,6 +50,7 @@ div {
   width: 87%;
   height: 35px;
   font-size: 15px;
+  padding: 5px;
 }
 
 .login-forgort-password {
@@ -151,6 +152,7 @@ div {
   .login-form form input {
     width: 50%;
     height: 30px;
+    font-size: 13px;
   }
 
   .login-form button {

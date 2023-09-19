@@ -80,3 +80,22 @@ app.get("/profile", (req, res) => {
     res.status(401).json("no token");
   }
 });
+
+app.post("/send-message", (req, res) => {
+  const userMessage = req.body.userMessage;
+
+  console.log(userMessage);
+
+  let reply;
+  if (userMessage.content === "Hello") {
+    reply = {
+      text: "Thank you for your message. We will get back to you soon.",
+    };
+  } else {
+    reply = {
+      text: "Sorry, I didn't understand that.",
+    };
+  }
+
+  res.json(reply);
+});

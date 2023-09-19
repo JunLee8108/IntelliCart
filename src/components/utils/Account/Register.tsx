@@ -1,24 +1,27 @@
 import "./Register.css";
-import {useState} from "react";
+import { useState } from "react";
 import axios from "axios";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export const Register: React.FC = () => {
-
-  const [email, setEmail] = useState('');
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>){
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const {data} = await axios.post('/register', {email, firstname, lastname, password})
-    if (data == "ok"){
+    const { data } = await axios.post("/register", {
+      email,
+      firstname,
+      lastname,
+      password,
+    });
+    if (data == "ok") {
       alert("Registered sucesfully. Please login with your email.");
-      navigate('/account/login');
+      navigate("/account/login");
     }
-
   }
 
   return (
@@ -37,49 +40,73 @@ export const Register: React.FC = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <input value={firstname}
-              onChange={e => setFirstname(e.target.value)}
-              type="text"
-              placeholder="First Name*"
-              id="first-name"
-              required
-            ></input>
-            <input
-              type="text"
-              placeholder="Last Name*"
-              value={lastname}
-              onChange={e=>setLastname(e.target.value)}
-              id="last-name"
-              required
-            ></input>
-            <input
-              type="email"
-              value={email}
-              onChange={e=> setEmail(e.target.value)}
-              placeholder="Email*"
-              id="loginEmail"
-              required
-            ></input>
-            <input
-              type="email"
-              placeholder="Confirm Email*"
-              id="loginEmail-confirm"
-              required
-            ></input>
-            <input
-              type="password"
-              value={password}
-              onChange={e=> setPassword(e.target.value)}
-              placeholder="Password*"
-              id="loginPW"
-              required
-            ></input>
-            <input
-              type="password"
-              placeholder="Confirm Password*"
-              id="loginPW-confirm"
-              required
-            ></input>
+            <div className="register-input-container">
+              <input
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
+                type="text"
+                placeholder="First Name*"
+                id="first-name"
+                required
+              ></input>
+              <label htmlFor="first-name">First Name</label>
+            </div>
+
+            <div className="register-input-container">
+              <input
+                type="text"
+                placeholder="Last Name*"
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
+                id="last-name"
+                required
+              ></input>
+              <label htmlFor="last-name">Last Name</label>
+            </div>
+
+            <div className="register-input-container">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email*"
+                id="loginEmail"
+                required
+              ></input>
+              <label htmlFor="loginEmail">Email</label>
+            </div>
+
+            <div className="register-input-container">
+              <input
+                type="email"
+                placeholder="Confirm Email*"
+                id="loginEmail-confirm"
+                // required
+              ></input>
+              <label htmlFor="loginEmail-confirm">Confirm Email</label>
+            </div>
+
+            <div className="register-input-container">
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password*"
+                id="loginPW"
+                required
+              ></input>
+              <label htmlFor="loginPw">Password</label>
+            </div>
+
+            <div className="register-input-container">
+              <input
+                type="password"
+                placeholder="Confirm Password*"
+                id="loginPW-confirm"
+                // required
+              ></input>
+              <label htmlFor="loginPW-confirm">Confirm Password</label>
+            </div>
 
             <div className="register-button-container display-flex">
               <div className="register-button-flexbox display-flex">

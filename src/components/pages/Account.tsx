@@ -4,12 +4,12 @@ import axios from "axios";
 import React from "react";
 
 import "./Account.css";
-import {useContext} from "react";
+import { useContext } from "react";
 import { Register } from "../utils/Account/Register";
 import { ForgotPassword } from "../utils/Account/ForgotPassword";
 
 import { useParams, useNavigate } from "react-router-dom";
-import {UserContext} from "./UserContext.jsx";
+import { UserContext } from "./UserContext.jsx";
 
 export const Account: React.FC = () => {
   const { category } = useParams();
@@ -20,9 +20,7 @@ export const Account: React.FC = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const {data} = await axios.post('/login', {email, password});
-  
-
+    const { data } = await axios.post("/login", { email, password });
   }
 
   if (category === "login") {

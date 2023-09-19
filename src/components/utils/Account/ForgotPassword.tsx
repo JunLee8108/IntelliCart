@@ -13,18 +13,27 @@ export const ForgotPassword: React.FC = () => {
           </div>
 
           <form>
-            <input
-              type="email"
-              placeholder="Email*"
-              id="loginEmail"
-              required
-            ></input>
-            <input
-              type="email"
-              placeholder="Confirm Email*"
-              id="loginEmail-confirm"
-              required
-            ></input>
+            <div className="forgot-password-input-container">
+              <input
+                type="email"
+                placeholder="Email*"
+                id="loginEmail"
+                onFocus={() => {
+                  console.log(1);
+                }}
+                required
+              ></input>
+              <label htmlFor="loginEmail">Email</label>
+            </div>
+            <div className="forgot-password-input-container">
+              <input
+                type="email"
+                placeholder="Confirm Email*"
+                id="loginEmail-confirm"
+                required
+              ></input>
+              <label htmlFor="loginEmail">Confirm Email</label>
+            </div>
 
             <div className="forgot-password-button-container display-flex">
               <div className="forgot-password-button-flexbox display-flex">
