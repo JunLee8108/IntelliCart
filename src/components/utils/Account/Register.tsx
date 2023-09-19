@@ -1,6 +1,18 @@
 import "./Register.css";
-
+import {useState} from "react";
+import axios from "axios";
 export const Register: React.FC = () => {
+
+  const [email, setEmail] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [password, setPassword] = useState('');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>){
+    e.preventDefault();
+    const {data} = await axios.post('/register', {email, firstname, lastname, password});
+  }
+
   return (
     <>
       <div className="register-container display-flex">
@@ -16,8 +28,9 @@ export const Register: React.FC = () => {
             <h2>Create Your Account</h2>
           </div>
 
-          <form>
-            <input
+          <form onSubmit={handleSubmit}>
+            <input value={firstname}
+              onChange={e => setFirstname(e.target.value)}
               type="text"
               placeholder="First Name*"
               id="first-name"
@@ -26,11 +39,15 @@ export const Register: React.FC = () => {
             <input
               type="text"
               placeholder="Last Name*"
+              value={lastname}
+              onChange={e=>setLastname(e.target.value)}
               id="last-name"
               required
             ></input>
             <input
               type="email"
+              value={email}
+              onChange={e=> setEmail(e.target.value)}
               placeholder="Email*"
               id="loginEmail"
               required
@@ -43,6 +60,8 @@ export const Register: React.FC = () => {
             ></input>
             <input
               type="password"
+              value={password}
+              onChange={e=> setPassword(e.target.value)}
               placeholder="Password*"
               id="loginPW"
               required
