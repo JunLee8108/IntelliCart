@@ -4,21 +4,25 @@ import axios from "axios";
 import React from "react";
 
 import "./Account.css";
+import {useContext} from "react";
 import { Register } from "../utils/Account/Register";
 import { ForgotPassword } from "../utils/Account/ForgotPassword";
 
 import { useParams, useNavigate } from "react-router-dom";
+import {UserContext} from "./UserContext.jsx";
 
 export const Account: React.FC = () => {
   const { category } = useParams();
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const { data } = await axios.post("/register", { username, password });
+    const {data} = await axios.post('/login', {email, password});
+  
+
   }
 
   if (category === "login") {
@@ -33,8 +37,8 @@ export const Account: React.FC = () => {
                   <p>Email</p>
                 </label>
                 <input
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   placeholder="Email*"
                   id="loginEmail"
