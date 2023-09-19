@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const User = require("./models/User");
 const app = express();
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 // Using .env config
 dotenv.config();
@@ -40,4 +41,23 @@ app.post("/register", async (req, res) => {
   } catch (err) {
     if (err) throw err;
   }
+});
+
+app.post("/send-message", (req, res) => {
+  const userMessage = req.body.userMessage;
+
+  console.log(userMessage);
+
+  let reply;
+  if (userMessage.content === "Hello") {
+    reply = {
+      text: "Thank you for your message. We will get back to you soon.",
+    };
+  } else {
+    reply = {
+      text: "Sorry, I didn't understand that.",
+    };
+  }
+
+  res.json(reply);
 });
