@@ -41,30 +41,11 @@ app.post("/register", async (req, res) => {
   try {
     jwt.sign({ userId: createdUser._id }, jwtSecret, (err, token) => {
       if (err) throw err;
-      res.cookie("token", token).status(201).json("ok");      
+      res.cookie("token", token).status(201).json("ok");
     });
   } catch (err) {
     if (err) throw err;
   }
-});
-
-app.post("/send-message", (req, res) => {
-  const userMessage = req.body.userMessage;
-
-  console.log(userMessage);
-
-  let reply;
-  if (userMessage.content === "Hello") {
-    reply = {
-      text: "Thank you for your message. We will get back to you soon.",
-    };
-  } else {
-    reply = {
-      text: "Sorry, I didn't understand that.",
-    };
-  }
-
-  res.json(reply);
 });
 
 app.post("/login", async (req, res) => {
