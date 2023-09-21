@@ -2,6 +2,9 @@ import "./RegisterModal.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
+
 interface Props {
   setSuccessModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -44,6 +47,10 @@ export const RegisterModal: React.FC<Props> = ({ setSuccessModal }) => {
           </div>
 
           <div className="register-modal-text-container">
+            <FontAwesomeIcon
+              icon={faSquareCheck}
+              className="register-modal-success"
+            />
             <p>Succesfully registered!</p>
             <p>Please login with your email.</p>
           </div>

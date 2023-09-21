@@ -1,6 +1,6 @@
 import "./Register.css";
-import { RegisterModal } from "../Modals/RegisterModal";
-import { RegisterFailedModal } from "../Modals/RegisterFailedModal";
+import { RegisterModal } from "../Modals/Account-modals/RegisterModal";
+import { RegisterFailedModal } from "../Modals/Account-modals/RegisterFailedModal";
 import { useState } from "react";
 import axios from "axios";
 

@@ -30,6 +30,7 @@ app.get("/test2", (req, res) => {
   res.json("test ok");
 });
 
+// Register
 app.post("/register", async (req, res) => {
   const { firstname, lastname, email, password } = req.body;
 
@@ -58,6 +59,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// Login
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const foundUser = await User.findOne({ email });
@@ -78,6 +80,18 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Forgot password
+app.post("/forgot-password", async (req, res) => {
+  const { email } = req.body;
+  const existingUser = await User.findOne({ email });
+  if (!existingUser) {
+    return res.send({ message: "Username doesn't exists" });
+  } else {
+    return res.send({ message: "Username exists" });
+  }
+});
+
+// Profile
 app.get("/profile", (req, res) => {
   const token = req.cookies?.token;
 
@@ -91,6 +105,7 @@ app.get("/profile", (req, res) => {
   }
 });
 
+// Chatbot-send message
 app.post("/send-message", (req, res) => {
   const userMessage = req.body.userMessage;
 
