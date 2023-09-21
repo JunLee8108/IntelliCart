@@ -1,15 +1,15 @@
 import "./Register.css";
+import { RegisterModal } from "../Modals/RegisterModal";
 import { useState } from "react";
 import axios from "axios";
-
-import { useNavigate } from "react-router-dom";
 
 export const Register: React.FC = () => {
   const [email, setEmail] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const [isSuccessModal, setSuccessModal] = useState(false);
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const { data } = await axios.post("/register", {
@@ -18,9 +18,8 @@ export const Register: React.FC = () => {
       lastname,
       password,
     });
-    if (data == "ok") {
-      alert("Registered sucesfully. Please login with your email.");
-      navigate("/account/login");
+    if (data === "ok") {
+      setSuccessModal(true);
     }
   }
 
@@ -95,7 +94,7 @@ export const Register: React.FC = () => {
                 id="loginPW"
                 required
               ></input>
-              <label htmlFor="loginPw">Password</label>
+              <label htmlFor="loginPW">Password</label>
             </div>
 
             <div className="register-input-container">
@@ -119,6 +118,10 @@ export const Register: React.FC = () => {
           </form>
         </div>
       </div>
+
+      {isSuccessModal ? (
+        <RegisterModal setSuccessModal={setSuccessModal} />
+      ) : null}
     </>
   );
 };

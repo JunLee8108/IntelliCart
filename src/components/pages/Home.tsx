@@ -1,6 +1,6 @@
 import "./Home.css";
 import { CardData } from "../utils/Data/data";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 
 import axios from "axios";
@@ -15,7 +15,6 @@ type MessageType = {
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [messages, setMessages] = useState<MessageType[]>([]);
-  const [replyMessage, setReplyMessage] = useState<string>("");
   const [input, setInput] = useState<string>("");
 
   const chatContentRef = React.useRef<HTMLDivElement | null>(null);
