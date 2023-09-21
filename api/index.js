@@ -32,13 +32,22 @@ app.get("/test2", (req, res) => {
 
 app.post("/register", async (req, res) => {
   const { firstname, lastname, email, password } = req.body;
+
+  // Duplicate check
+  const existingUser = await User.findOne({ email });
+  if (existingUser) {
+    return res.send({ message: "Username already exists" });
+  }
+
   const hashedPassword = bcrypt.hashSync(password);
+
   const createdUser = await User.create({
     firstname: firstname,
     lastname: lastname,
     email: email,
     password: hashedPassword,
   });
+
   try {
     jwt.sign({ userId: createdUser._id }, jwtSecret, (err, token) => {
       if (err) throw err;

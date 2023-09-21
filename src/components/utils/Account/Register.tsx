@@ -1,5 +1,6 @@
 import "./Register.css";
 import { RegisterModal } from "../Modals/RegisterModal";
+import { RegisterFailedModal } from "../Modals/RegisterFailedModal";
 import { useState } from "react";
 import axios from "axios";
 
@@ -8,7 +9,10 @@ export const Register: React.FC = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
+  // const [isEmailSame, setEmailSame] = useState(false);
+  // const [isPasswordSame, setPasswordSame] = useState(false);
   const [isSuccessModal, setSuccessModal] = useState(false);
+  const [isFailedModal, setFailedModal] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -18,8 +22,13 @@ export const Register: React.FC = () => {
       lastname,
       password,
     });
+
     if (data === "ok") {
       setSuccessModal(true);
+    }
+
+    if (data.message === "Username already exists") {
+      setFailedModal(true);
     }
   }
 
@@ -109,7 +118,9 @@ export const Register: React.FC = () => {
 
             <div className="register-button-container display-flex">
               <div className="register-button-flexbox display-flex">
-                <button type="reset">RESET</button>
+                <button type="reset" value="Reset">
+                  RESET
+                </button>
               </div>
               <div className="register-button-flexbox display-flex">
                 <button type="submit">CREATE</button>
@@ -121,6 +132,10 @@ export const Register: React.FC = () => {
 
       {isSuccessModal ? (
         <RegisterModal setSuccessModal={setSuccessModal} />
+      ) : null}
+
+      {isFailedModal ? (
+        <RegisterFailedModal setFailedModal={setFailedModal} />
       ) : null}
     </>
   );
