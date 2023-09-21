@@ -1,5 +1,5 @@
 import "./NavbarModal.css";
-import { navbarItem } from "../Data/data";
+import { navbarItem } from "../../Data/data";
 
 import { useNavigate } from "react-router-dom";
 

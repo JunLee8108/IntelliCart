@@ -308,24 +308,25 @@ export const Home: React.FC = () => {
                 )
               )}
           </div>
-        </div>
 
-        <div className="chat-input-section">
-          <input
-            type="text"
-            placeholder="Type a message..."
-            className="chat-input"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                sendMessage();
-              }
-            }}
-          />
-          <button className="chat-send-button" onClick={sendMessage}>
-            Send
-          </button>
+          <div className="chat-input-section">
+            <input
+              type="text"
+              placeholder="Type a message..."
+              className="chat-input"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  sendMessage();
+                }
+              }}
+            />
+
+            <button className="chat-send-button" onClick={sendMessage}>
+              Send
+            </button>
+          </div>
         </div>
       </div>
     </>

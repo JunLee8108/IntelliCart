@@ -34,6 +34,6 @@ const CardData: Cardtype[] = [
   },
 ];
 
-const navbarItem: string[] = ["SHOP", "ACCOUNT", "CART"];
+const navbarItem: string[] = ["SHOP", "CART", "ACCOUNT"];
 
 export { CardData, navbarItem };

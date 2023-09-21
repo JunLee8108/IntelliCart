@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { NavbarModal } from "../Modals/NavbarModal";
+import { NavbarModal } from "../Modals/Navbar-modals/NavbarModal";
 import { MouseEvent, useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

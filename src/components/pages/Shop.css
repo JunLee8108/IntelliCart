@@ -1,3 +1,12 @@
 .shop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: calc(100vh - 10rem);
+}
+
+@media screen and (max-width: 767px) {
+  .shop-container h1 {
+    font-size: 15px;
+  }
 }

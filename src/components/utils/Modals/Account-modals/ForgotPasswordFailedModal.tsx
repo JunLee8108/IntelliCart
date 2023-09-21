@@ -1,16 +1,19 @@
 // Use same css file with RegisterModal.tsx
-import "./RegisterModal";
-import { useEffect, useState } from "react";
+import "./RegisterModal.css";
+import { useState, useEffect } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
-  setFailedModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setFailed: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const RegisterFailedModal: React.FC<Props> = ({ setFailedModal }) => {
+export const ForgotPasswordFailedModal: React.FC<Props> = ({ setFailed }) => {
   const [fade, setFade] = useState("");
 
   const closeModalandNavigate = () => {
-    setFailedModal(false);
+    setFailed(false);
   };
 
   useEffect(() => {
@@ -41,8 +44,12 @@ export const RegisterFailedModal: React.FC<Props> = ({ setFailedModal }) => {
           </div>
 
           <div className="register-modal-text-container">
-            <p>Your Email already exists!</p>
-            <p>Please try again with a different email.</p>
+            <FontAwesomeIcon
+              icon={faTriangleExclamation}
+              className="register-modal-warning"
+            />
+            <p>Your Email doesn't exists!</p>
+            <p>Please check with your email.</p>
           </div>
 
           <div className="register-modal-button-container">

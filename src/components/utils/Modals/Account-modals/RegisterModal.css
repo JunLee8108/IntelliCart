@@ -56,11 +56,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: yellow; */
 }
 
 .register-modal-text-container p:nth-child(2) {
   margin-top: 10px;
+}
+
+.register-modal-warning {
+  width: 30px;
+  height: 30px;
+  color: red;
+  margin-bottom: 30px;
+}
+
+.register-modal-success {
+  width: 30px;
+  height: 30px;
+  color: #23e400;
+  margin-bottom: 30px;
 }
 
 .register-modal-button-container {
@@ -74,22 +87,25 @@
 
 .register-modal-button-container button {
   border: none;
-  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 11px;
   margin-bottom: 20px;
   background-color: transparent;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
 }
 
 .register-modal-button-container button:hover {
   color: red;
-  transition: 0.3s all;
+  transition: 0.2s all;
   transform: scale(1.15);
 }
 
 .register-modal-button-container button:not(:hover) {
   color: black;
-  transition: 0.3s all;
+  opacity: 1;
+  transition: 0.2s all;
   transform: scale(1);
 }
 
@@ -114,7 +130,18 @@
     font-size: 13px;
   }
 
+  .register-modal-warning {
+    width: 25px;
+    height: 25px;
+  }
+
+  .register-modal-success {
+    width: 25px;
+    height: 25px;
+  }
+
   .register-modal-button-container button {
-    font-size: 11px;
+    font-size: 9px;
+    padding: 10px;
   }
 }
