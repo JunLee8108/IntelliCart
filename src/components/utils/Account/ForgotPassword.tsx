@@ -32,7 +32,7 @@ export const ForgotPassword: React.FC = () => {
                 id="loginEmail-confirm"
                 required
               ></input>
-              <label htmlFor="loginEmail">Confirm Email</label>
+              <label htmlFor="loginEmail-confirm">Confirm Email</label>
             </div>
 
             <div className="forgot-password-button-container display-flex">
