@@ -19,9 +19,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 20%;
+  width: 28%;
   max-width: 450px;
-  height: 45%;
+  height: 50%;
   max-height: 550px;
   border-radius: 5px;
   opacity: 0;
@@ -91,4 +91,30 @@
   color: black;
   transition: 0.3s all;
   transform: scale(1);
+}
+
+@media screen and (max-width: 767px) {
+  .register-modal-container {
+    width: 80%;
+    max-width: none;
+    height: 50%;
+    max-height: none;
+  }
+
+  .register-modal-container-fade {
+    opacity: 1;
+    transition: 0.5s all;
+  }
+
+  .register-modal-logo-container h3 {
+    font-size: 16px;
+  }
+
+  .register-modal-text-container p {
+    font-size: 13px;
+  }
+
+  .register-modal-button-container button {
+    font-size: 11px;
+  }
 }
