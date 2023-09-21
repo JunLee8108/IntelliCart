@@ -7,7 +7,6 @@ import React from "react";
 
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import { UserContext } from "./UserContext.jsx";
 
 export const Account: React.FC = () => {
   const { category } = useParams();
