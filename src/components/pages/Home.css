@@ -227,6 +227,125 @@
   transition: all 0.2s linear;
 }
 
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0.5;
+}
+
+.chat-button:hover {
+  opacity: 1 !important;
+  transition: all 0.15s linear;
+}
+
+.chat-button:not(:hover) {
+  opacity: 0.5;
+  transition: all 0.15s linear;
+}
+
+.chat-room {
+  position: fixed;
+  bottom: 110px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: none;
+}
+
+.chat-header {
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.chat-header h4 {
+  margin: 0;
+}
+
+.chat-input-section {
+  position: fixed;
+  width: 300px;
+  bottom: 72px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  display: none;
+}
+
+.chat-input {
+  flex: 1;
+  width: 206px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-send-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chat-send-button:hover {
+  background-color: #0056b3;
+}
+
+.chat-content {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  max-height: 345px;
+}
+
+.chat-message {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 80%;
+}
+
+.user {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+  font-size: 14px;
+  line-height: 20px;
+  border-bottom-right-radius: 0;
+}
+
+.server {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+  font-size: 14px;
+  line-height: 20px;
+  border-bottom-left-radius: 0;
+}
+
 @media (hover: hover) {
   .home-card-flexbox-detail-hover:hover {
     opacity: 1;

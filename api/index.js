@@ -4,8 +4,10 @@ const dotenv = require("dotenv");
 const User = require("./models/User");
 const app = express();
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
+
 // Using .env config
 dotenv.config();
 
@@ -29,7 +31,7 @@ app.get("/test2", (req, res) => {
 });
 
 app.post("/register", async (req, res) => {
-  const {firstname, lastname, email, password } = req.body;
+  const { firstname, lastname, email, password } = req.body;
   const hashedPassword = bcrypt.hashSync(password);
   const createdUser = await User.create({
     firstname: firstname,
@@ -47,30 +49,54 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.post('/login', async (req, res) => {
-  const {email, password} = req.body;
-  const foundUser = await User.findOne({email});
-  if (foundUser){
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  const foundUser = await User.findOne({ email });
+  if (foundUser) {
     const passOk = bcrypt.compareSync(password, foundUser.password);
-    if (passOk){
-      jwt.sign({userId: foundUser._id, email}, jwtSecret, {}, (err, token) =>{
-        res.cookie('token', token).json({
-          id: foundUser._id,
-        })
-      })
+    if (passOk) {
+      jwt.sign(
+        { userId: foundUser._id, email },
+        jwtSecret,
+        {},
+        (err, token) => {
+          res.cookie("token", token).json({
+            id: foundUser._id,
+          });
+        }
+      );
     }
   }
-})
+});
 
-app.get('/profile', (req, res)=> {
+app.get("/profile", (req, res) => {
   const token = req.cookies?.token;
 
-  if(token){
-    jwt.verify(token, jtwSecret, {}, (err, userData)=> {
+  if (token) {
+    jwt.verify(token, jtwSecret, {}, (err, userData) => {
       if (err) throw err;
       res.json(userData);
     });
-  }else{
-    res.status(401).json('no token');
+  } else {
+    res.status(401).json("no token");
   }
-})
+});
+
+app.post("/send-message", (req, res) => {
+  const userMessage = req.body.userMessage;
+
+  console.log(userMessage);
+
+  let reply;
+  if (userMessage.content === "Hello") {
+    reply = {
+      text: "Thank you for your message. We will get back to you soon.",
+    };
+  } else {
+    reply = {
+      text: "Sorry, I didn't understand that.",
+    };
+  }
+
+  res.json(reply);
+});
