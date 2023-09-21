@@ -1,4 +1,9 @@
 import "./Account.css";
+
+import { useState } from "react";
+import axios from "axios";
+import React from "react";
+
 import { Register } from "../utils/Account/Register";
 import { ForgotPassword } from "../utils/Account/ForgotPassword";
 import { useState } from "react";
@@ -6,6 +11,7 @@ import React from "react";
 
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import {UserContext} from "./UserContext.jsx";
 
 export const Account: React.FC = () => {
   const { category } = useParams();
