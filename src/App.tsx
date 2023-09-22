@@ -4,6 +4,7 @@ import { Home } from "./components/pages/Home";
 import { Shop } from "./components/pages/Shop";
 import { Account } from "./components/pages/Account";
 import { Cart } from "./components/pages/Cart";
+import { EmailVerification } from "./components/utils/Helpers/EmailVerification";
 import { Navbar } from "./components/utils/Navbar/Navbar";
 import { Footer } from "./components/utils/Footer/Footer";
 import axios from "axios";
@@ -32,6 +33,10 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/account/:category" element={<Account />} />
             <Route path="/cart" element={<Cart />} />
+            <Route
+              path="/verify-email/:token"
+              element={<EmailVerification />}
+            />
           </Routes>
         </Fade>
       </TransitionGroup>

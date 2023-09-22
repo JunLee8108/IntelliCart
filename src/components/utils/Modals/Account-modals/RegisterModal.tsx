@@ -52,7 +52,7 @@ export const RegisterModal: React.FC<Props> = ({ setSuccessModal }) => {
               className="register-modal-success"
             />
             <p>Succesfully registered!</p>
-            <p>Please login with your email.</p>
+            <p>Check your email and verificate your account.</p>
           </div>
 
           <div className="register-modal-button-container">

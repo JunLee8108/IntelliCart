@@ -36,19 +36,21 @@ export const Register: React.FC = () => {
       setPasswordSame(false);
     }
 
-    const { data } = await axios.post("/register", {
-      email,
-      firstname,
-      lastname,
-      password,
-    });
+    try {
+      const { data } = await axios.post("/register", {
+        email,
+        firstname,
+        lastname,
+        password,
+      });
 
-    if (data === "ok") {
-      setSuccessModal(true);
-    }
-
-    if (data.message === "Username already exists") {
-      setFailedModal(true);
+      if (data === "ok") {
+        setSuccessModal(true);
+      } else if (data.message === "Username already exists") {
+        setFailedModal(true);
+      }
+    } catch (error) {
+      alert("Error!");
     }
   }
 
