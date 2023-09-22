@@ -6,16 +6,36 @@ import axios from "axios";
 
 export const Register: React.FC = () => {
   const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
-  // const [isEmailSame, setEmailSame] = useState(false);
-  // const [isPasswordSame, setPasswordSame] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isEmailSame, setEmailSame] = useState(false);
+  const [isPasswordSame, setPasswordSame] = useState(false);
   const [isSuccessModal, setSuccessModal] = useState(false);
   const [isFailedModal, setFailedModal] = useState(false);
 
+  const handleConfirm = (a: boolean, b: boolean) => {
+    setEmailSame(a);
+    setPasswordSame(b);
+  };
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    // Checking if the email and the confirm email are the same
+    if (email !== confirmEmail && password === confirmPassword) {
+      return handleConfirm(true, false);
+    } else if (email === confirmEmail && password !== confirmPassword) {
+      return handleConfirm(false, true);
+    } else if (email !== confirmEmail && password !== confirmPassword) {
+      return handleConfirm(true, true);
+    } else {
+      setEmailSame(false);
+      setPasswordSame(false);
+    }
+
     const { data } = await axios.post("/register", {
       email,
       firstname,
@@ -87,9 +107,11 @@ export const Register: React.FC = () => {
             <div className="register-input-container">
               <input
                 type="email"
+                value={confirmEmail}
+                onChange={(e) => setConfirmEmail(e.target.value)}
                 placeholder="Confirm Email*"
                 id="loginEmail-confirm"
-                // required
+                required
               ></input>
               <label htmlFor="loginEmail-confirm">Confirm Email</label>
             </div>
@@ -109,12 +131,26 @@ export const Register: React.FC = () => {
             <div className="register-input-container">
               <input
                 type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Confirm Password*"
                 id="loginPW-confirm"
-                // required
+                required
               ></input>
               <label htmlFor="loginPW-confirm">Confirm Password</label>
             </div>
+
+            {isEmailSame ? (
+              <div className="forgot-passoword-email-notmatch">
+                <p>Emails are not the same!</p>
+              </div>
+            ) : null}
+
+            {isPasswordSame ? (
+              <div className="forgot-passoword-email-notmatch">
+                <p>Passwords are not the same!</p>
+              </div>
+            ) : null}
 
             <div className="register-button-container display-flex">
               <div className="register-button-flexbox display-flex">
