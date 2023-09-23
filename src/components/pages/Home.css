@@ -103,6 +103,18 @@
   letter-spacing: 1px;
 }
 
+.home-card-title h1 {
+  margin-right: 20px;
+}
+
+.home-card-title-animation-laptop {
+  display: block;
+}
+
+.home-card-title-animation-mobile {
+  display: none;
+}
+
 .home-card-description {
   flex-direction: column;
   justify-content: center;
@@ -115,7 +127,8 @@
 .home-card-description h2 {
   width: 60%;
   max-width: 1200px;
-  border-left: 4px solid rgba(35, 35, 186);
+  border-left: 4px solid green;
+  /* rgba(35, 35, 186); */
   padding-left: 15px;
   letter-spacing: 2px;
   font-size: 30px;
@@ -424,6 +437,18 @@
 
   .home-card-title {
     font-size: 10px;
+  }
+
+  .home-card-title h1 {
+    margin-right: 10px;
+  }
+
+  .home-card-title-animation-laptop {
+    display: none;
+  }
+
+  .home-card-title-animation-mobile {
+    display: block;
   }
 
   .home-card-description {

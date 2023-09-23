@@ -6,6 +6,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CircleLoader from "react-spinners/CircleLoader";
 
 type MessageType = {
   type: "user" | "server";
@@ -220,6 +221,26 @@ export const Home: React.FC = () => {
 
         <div className="home-card-title display-flex">
           <h1>What is IntelliCart?</h1>
+          <div className="home-card-title-animation-laptop">
+            <CircleLoader
+              color="green"
+              loading={true}
+              size={45}
+              speedMultiplier={1}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
+          <div className="home-card-title-animation-mobile">
+            <CircleLoader
+              color="green"
+              size={35}
+              loading={true}
+              speedMultiplier={1}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
         </div>
 
         <div className="home-card-description display-flex">
