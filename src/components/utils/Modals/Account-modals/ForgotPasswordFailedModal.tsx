@@ -48,7 +48,7 @@ export const ForgotPasswordFailedModal: React.FC<Props> = ({ setFailed }) => {
               icon={faTriangleExclamation}
               className="register-modal-warning"
             />
-            <p>Your Email doesn't exists!</p>
+            <p>Your Email doesn't exist!</p>
             <p>Please check with your email.</p>
           </div>
 

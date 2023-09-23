@@ -18,6 +18,10 @@ div {
   box-sizing: border-box;
 }
 
+input {
+  box-sizing: border-box;
+}
+
 p,
 h6,
 h5,

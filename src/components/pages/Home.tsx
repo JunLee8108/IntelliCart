@@ -324,7 +324,7 @@ export const Home: React.FC = () => {
             />
 
             <button className="chat-send-button" onClick={sendMessage}>
-              Send
+              SEND
             </button>
           </div>
         </div>
