@@ -12,7 +12,7 @@ export const Shop: React.FC = () => {
             color="black"
             loading={true}
             size={18}
-            speedMultiplier={0.5}
+            speedMultiplier={0.6}
             aria-label="Loading Spinner"
             data-testid="loader"
           />
@@ -22,7 +22,7 @@ export const Shop: React.FC = () => {
             color="black"
             loading={true}
             size={12}
-            speedMultiplier={0.5}
+            speedMultiplier={0.6}
             aria-label="Loading Spinner"
             data-testid="loader"
           />
