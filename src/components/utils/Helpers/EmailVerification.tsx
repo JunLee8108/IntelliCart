@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import PropagateLoader from "react-spinners/PropagateLoader";
+
 export const EmailVerification: React.FC = () => {
   const { token } = useParams<{ token: string }>();
   const navigate = useNavigate();
@@ -12,8 +14,8 @@ export const EmailVerification: React.FC = () => {
       try {
         await axios.get(`/verify-email/${token}`);
         // Navigate to a success page or show a success message
-        alert("Your Email was verified!");
-        navigate("/account/login");
+        // alert("Your email was verified!");
+        // navigate("/account/login");
       } catch (error: any) {
         if (
           error.response &&
@@ -35,7 +37,14 @@ export const EmailVerification: React.FC = () => {
 
   return (
     <div className="email-verificatioin-container">
-      <h1>Verifying your email...</h1>
+      <PropagateLoader
+        color="#36D7B7"
+        loading={true}
+        size={30}
+        speedMultiplier={1}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
     </div>
   );
 };

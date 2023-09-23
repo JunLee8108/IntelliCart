@@ -2,11 +2,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   min-height: calc(100vh - 10rem);
+}
+
+.cart-container h1 {
+  margin-bottom: 40px;
+}
+
+.cart-loader-laptop {
+  display: block;
+}
+
+.cart-loader-mobile {
+  display: none;
 }
 
 @media screen and (max-width: 767px) {
   .cart-container h1 {
     font-size: 15px;
+    margin-bottom: 30px;
+  }
+
+  .cart-loader-laptop {
+    display: none;
+  }
+
+  .cart-loader-mobile {
+    display: block;
   }
 }
