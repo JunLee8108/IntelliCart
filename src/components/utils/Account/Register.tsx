@@ -156,11 +156,6 @@ export const Register: React.FC = () => {
 
             <div className="register-button-container display-flex">
               <div className="register-button-flexbox display-flex">
-                <button type="reset" value="Reset">
-                  RESET
-                </button>
-              </div>
-              <div className="register-button-flexbox display-flex">
                 <button type="submit">CREATE</button>
               </div>
             </div>

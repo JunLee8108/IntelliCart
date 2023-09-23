@@ -216,7 +216,7 @@
 }
 
 .home-startBtn button:hover {
-  color: red;
+  color: #39ff14;
   transition: all 0.2s linear;
   transform: translateY(-10%);
 }
@@ -232,13 +232,14 @@
   bottom: 20px;
   right: 20px;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: black;
+  color: #39ff14;
   border: none;
-  border-radius: 30px;
+  border-radius: 50px;
   cursor: pointer;
   z-index: 999;
   opacity: 0.5;
+  font-weight: 500;
 }
 
 .chat-button:hover {
@@ -258,15 +259,17 @@
   width: 300px;
   height: 400px;
   background-color: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  box-shadow: 10px 10px 20px rgba(19, 60, 202, 0.2);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   display: none;
 }
 
 .chat-header {
   padding: 15px;
-  background-color: #007bff;
+  background-color: black;
   color: white;
+  text-align: center;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -299,15 +302,16 @@
   width: 20%;
   padding: 12.5px 15px;
   border: none;
-  background-color: #007bff;
+  background-color: black;
   color: white;
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: opacity 0.3s;
 }
 
 .chat-send-button:hover {
-  background-color: #0056b3;
+  opacity: 0.3;
 }
 
 .chat-content {
@@ -328,7 +332,7 @@
 }
 
 .user {
-  background-color: #007bff;
+  background-color: black;
   color: white;
   align-self: flex-end;
   font-size: 14px;

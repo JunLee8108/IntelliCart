@@ -77,9 +77,6 @@ export const ForgotPassword: React.FC = () => {
 
             <div className="forgot-password-button-container display-flex">
               <div className="forgot-password-button-flexbox display-flex">
-                <button type="reset">RESET</button>
-              </div>
-              <div className="forgot-password-button-flexbox display-flex">
                 <button type="submit">SEND</button>
               </div>
             </div>
