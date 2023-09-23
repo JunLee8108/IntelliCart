@@ -14,8 +14,8 @@ export const EmailVerification: React.FC = () => {
       try {
         await axios.get(`/verify-email/${token}`);
         // Navigate to a success page or show a success message
-        // alert("Your email was verified!");
-        // navigate("/account/login");
+        alert("Your email was verified!");
+        navigate("/account/login");
       } catch (error: any) {
         if (
           error.response &&
@@ -41,7 +41,7 @@ export const EmailVerification: React.FC = () => {
         color="#36D7B7"
         loading={true}
         size={30}
-        speedMultiplier={1}
+        speedMultiplier={0.8}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
