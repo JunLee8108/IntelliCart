@@ -18,7 +18,7 @@ function Fade({ children, ...props }: FadeProps) {
   return (
     <CSSTransition
       {...props}
-      timeout={1000}
+      timeout={1500}
       classNames="fade"
       exit={false} // Disable exit transition
     >
