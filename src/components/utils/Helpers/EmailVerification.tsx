@@ -10,29 +10,39 @@ export const EmailVerification: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+
+    const timerFunction = (a: string) => {
+      timer = setTimeout(() => {
+        alert(a);
+        navigate("/account/login");
+      }, 300);
+    };
+
     const verifyEmail = async () => {
       try {
         await axios.get(`/verify-email/${token}`);
         // Navigate to a success page or show a success message
-        alert("Your email was verified!");
-        navigate("/account/login");
+        timerFunction("Your email was verified!");
       } catch (error: any) {
         if (
           error.response &&
           error.response.data.message === "Verification link has expired"
         ) {
           // Navigate to an expired link page or show an expired link message
-          alert("Verification Link was expired!");
-          navigate("/account/login");
+          timerFunction("Verification Link was expired!");
         } else {
           // Navigate to a general error page or show a general error message
-          alert("Verification failed!");
-          navigate("/account/login");
+          timerFunction("Verification failed!");
         }
       }
     };
 
     verifyEmail();
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, [token, navigate]);
 
   return (
