@@ -1,4 +1,5 @@
 # IntelliCart
+
 ### AI-Powered E-Commerce Shop
 
 ---
