@@ -1,4 +1,5 @@
 import "./Register.css";
+import { Loading } from "../Helpers/Loading";
 import { RegisterModal } from "../Modals/Account-modals/RegisterModal";
 import { RegisterFailedModal } from "../Modals/Account-modals/RegisterFailedModal";
 import { useState } from "react";
@@ -15,14 +16,18 @@ export const Register: React.FC = () => {
   const [isPasswordSame, setPasswordSame] = useState(false);
   const [isSuccessModal, setSuccessModal] = useState(false);
   const [isFailedModal, setFailedModal] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const handleConfirm = (a: boolean, b: boolean) => {
+    setLoading(false);
     setEmailSame(a);
     setPasswordSame(b);
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    setLoading(true);
 
     // Checking if the email and the confirm email are the same
     if (email !== confirmEmail && password === confirmPassword) {
@@ -45,11 +50,14 @@ export const Register: React.FC = () => {
       });
 
       if (data === "ok") {
+        setLoading(false);
         setSuccessModal(true);
       } else if (data.message === "Username already exists") {
+        setLoading(false);
         setFailedModal(true);
       }
     } catch (error) {
+      setLoading(false);
       alert("Error!");
     }
   }
@@ -162,6 +170,8 @@ export const Register: React.FC = () => {
           </form>
         </div>
       </div>
+
+      {isLoading ? <Loading /> : null}
 
       {isSuccessModal ? (
         <RegisterModal setSuccessModal={setSuccessModal} />
