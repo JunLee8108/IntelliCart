@@ -1,6 +1,8 @@
 import "./ForgotPassword.css";
 import { ForgotPasswordFailedModal } from "../Modals/Account-modals/ForgotPasswordFailedModal";
+import { Loading } from "../Helpers/Loading";
 import { useState } from "react";
+
 import axios from "axios";
 
 export const ForgotPassword: React.FC = () => {
@@ -8,12 +10,20 @@ export const ForgotPassword: React.FC = () => {
   const [confirmEmail, setConfirmEmail] = useState("");
   const [isEmailSame, setEmailSame] = useState(false);
   const [isFailed, setFailed] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+
+  const handleEmail = () => {
+    setLoading(false);
+    setEmailSame(true);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    setLoading(true);
+
     if (email !== confirmEmail) {
-      return setEmailSame(true);
+      return handleEmail();
     } else {
       setEmailSame(false);
     }
@@ -24,10 +34,11 @@ export const ForgotPassword: React.FC = () => {
       });
 
       // Debug
-      console.log(data.message);
+      // console.log(data.message);
 
       if (data.message === "Username doesn't exists") {
-        return setFailed(true);
+        setLoading(false);
+        setFailed(true);
       }
     } catch (error) {
       console.log(error);
@@ -83,6 +94,8 @@ export const ForgotPassword: React.FC = () => {
           </form>
         </div>
       </div>
+
+      {isLoading ? <Loading /> : null}
 
       {isFailed ? <ForgotPasswordFailedModal setFailed={setFailed} /> : null}
     </>
