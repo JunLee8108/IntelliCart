@@ -50,26 +50,21 @@
   border-bottom: 2px solid transparent;
 }
 
+.navbar-title {
+  transition: color 0.3s;
+}
+
 .navbar-title:hover {
   color: #00a800 !important;
-  transition: all 0.2s;
+}
+
+.navbar-item {
+  transition: color 0.3s, border-bottom 0.3s;
 }
 
 .navbar-item:hover {
   color: #00a800 !important;
-  transition: all 0.2s;
   border-bottom: 2px solid #00a800 !important;
-}
-
-.navbar-title:not(:hover) {
-  color: black;
-  transition: all 0.4s;
-}
-
-.navbar-item:not(:hover) {
-  color: black;
-  transition: all 0.4s;
-  border-bottom: 2px solid transparent;
 }
 
 .navbar-magnifying-glass {
