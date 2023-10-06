@@ -7,6 +7,7 @@ import {
   faPlus,
   faDeleteLeft,
   faTrash,
+  faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Cart: React.FC = () => {
@@ -14,7 +15,14 @@ export const Cart: React.FC = () => {
     <>
       {/* <LoadingBeforeLogin /> */}
       <div className="cart-container">
-        <h2 className="cart-header">Your Cart</h2>
+        <h2 className="cart-header">
+          Your Cart{" "}
+          <FontAwesomeIcon
+            icon={faCartShopping}
+            style={{ marginLeft: "5px" }}
+            color="gray"
+          />
+        </h2>
 
         <table>
           <tbody>
