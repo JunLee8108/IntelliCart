@@ -1,0 +1,29 @@
+.shop-container {
+  width: 100%;
+  max-width: 1200px;
+  min-height: calc(100vh - 10rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shop-header {
+  text-align: center;
+}
+
+.shop-shop-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.shop-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(345px, 345px));
+  grid-gap: 3.5rem 4rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.shop-list-item {
+  background-color: red;
+}

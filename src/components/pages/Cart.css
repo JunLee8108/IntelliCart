@@ -10,6 +10,11 @@
   text-align: center;
 }
 
+.cart-cart-icon {
+  width: 22px;
+  height: 22px;
+}
+
 .cart-container table {
   margin-top: 30px;
   border-collapse: collapse;
@@ -111,6 +116,11 @@ td {
 @media screen and (max-width: 767px) {
   .cart-header {
     font-size: 16px;
+  }
+
+  .cart-cart-icon {
+    width: 15px;
+    height: 15px;
   }
 
   .cart-container td {
