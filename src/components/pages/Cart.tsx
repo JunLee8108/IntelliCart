@@ -21,6 +21,7 @@ export const Cart: React.FC = () => {
             icon={faCartShopping}
             style={{ marginLeft: "5px" }}
             color="gray"
+            className="cart-cart-icon"
           />
         </h2>
 
