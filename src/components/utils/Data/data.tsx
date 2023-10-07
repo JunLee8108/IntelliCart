@@ -36,4 +36,43 @@ const CardData: Cardtype[] = [
 
 const navbarItem: string[] = ["SHOP", "CART", "ACCOUNT"];
 
-export { CardData, navbarItem };
+const shopData = [
+  {
+    id: 0,
+    img: "/imgs/shop/jeans1.webp",
+    brand: "Wrangler Authentics",
+    title: "Men's Regular Fit Comfort Flex Waist Jean",
+    price: 29,
+    rating: 4.2,
+    reviews: 2012,
+  },
+  {
+    id: 1,
+    img: "/imgs/shop/jeans2.webp",
+    brand: "Levi's",
+    title: "Men's Big and Tall 501 Original Fit Jean",
+    price: 47,
+    rating: 4.6,
+    reviews: 11200,
+  },
+  {
+    id: 2,
+    img: "/imgs/shop/jeans3.webp",
+    brand: "Amazon Essentials",
+    title: "Men's Athletic-Fit Stretch Jean",
+    price: 35,
+    rating: 1.7,
+    reviews: 323,
+  },
+  {
+    id: 2,
+    img: "/imgs/shop/jeans3.webp",
+    brand: "Amazon Essentials",
+    title: "Men's Athletic-Fit Stretch Jean",
+    price: 35,
+    rating: 1.7,
+    reviews: 323,
+  },
+];
+
+export { CardData, navbarItem, shopData };
