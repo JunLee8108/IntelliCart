@@ -1,15 +1,85 @@
 import "./Shop.css";
 import { shopData } from "../utils/Data/data";
 import { LoadingBeforeLogin } from "../utils/Helpers/LoadingBeforeLogIn";
+import { MouseEvent, useState, useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShop,
   faStar,
   faStarHalfStroke,
+  faSort,
 } from "@fortawesome/free-solid-svg-icons";
 
+interface shop {
+  id: number;
+  img: string;
+  brand: string;
+  title: string;
+  price: number;
+  rating: number;
+  reviews: number;
+}
+
 export const Shop: React.FC = () => {
+  const [shopDataState, setShopDataState] = useState<shop[]>([]);
+
+  const handleSortButton = (
+    e: MouseEvent<HTMLButtonElement>,
+    instruction: string
+  ) => {
+    let sortBtn = document.querySelectorAll<HTMLElement>(".shop-sort button");
+    for (let i = 0; i < sortBtn.length; i++) {
+      sortBtn[i].style.border = "2px solid transparent";
+    }
+
+    e.currentTarget.style.border = "2px solid #00a800";
+
+    let sortedData = [...shopDataState];
+
+    if (instruction === "high") {
+      sortedData.sort(function (a, b) {
+        return b.price - a.price;
+      });
+      setShopDataState(sortedData);
+    } else {
+      sortedData.sort(function (a, b) {
+        return a.price - b.price;
+      });
+      setShopDataState(sortedData);
+    }
+  };
+
+  const sortButtonEffect = () => {
+    let list = document.querySelector<HTMLElement>(".shop-list");
+
+    if (list) {
+      list.style.opacity = "0";
+    }
+
+    let timer = setTimeout(() => {
+      if (list) {
+        list.style.transition = "all 0.4s linear";
+      }
+    }, 100);
+
+    let timer2 = setTimeout(() => {
+      if (list) {
+        list.style.opacity = "1";
+      }
+    }, 150);
+
+    let timer3 = setTimeout(() => {
+      if (list) {
+        list.style.transition = "none";
+      }
+    }, 550);
+  };
+
+  useEffect(() => {
+    setShopDataState(shopData);
+  }, []);
+
   return (
     <>
       {/* <LoadingBeforeLogin /> */}
@@ -20,12 +90,37 @@ export const Shop: React.FC = () => {
             icon={faShop}
             style={{ marginLeft: "5px" }}
             color="gray"
-            className="cart-cart-icon"
+            className="shop-shop-icon"
           />
         </h2>
 
+        <div className="shop-sort-find-container">
+          <div className="shop-sort">
+            <FontAwesomeIcon icon={faSort} className="shop-sort-icon" />
+            <button
+              onClick={(e) => {
+                handleSortButton(e, "high");
+                sortButtonEffect();
+              }}
+            >
+              Price: High to Low
+            </button>
+            <button
+              onClick={(e) => {
+                handleSortButton(e, "low");
+                sortButtonEffect();
+              }}
+            >
+              Price: Low to High
+            </button>
+          </div>
+          <div className="shop-find">
+            <input type="text" placeholder="🔎 search.."></input>
+          </div>
+        </div>
+
         <div className="shop-list">
-          {shopData.map((content, index) => {
+          {shopDataState.map((content, index) => {
             const displayStar = () => {
               let countStar: number | undefined = undefined;
               let countHalfStar: number | undefined = undefined;
@@ -68,14 +163,20 @@ export const Shop: React.FC = () => {
 
               if (countStar !== undefined) {
                 for (let i = 0; i < countStar; i++) {
-                  array.push(<FontAwesomeIcon icon={faStar} color="#FFA242" />);
+                  array.push(
+                    <FontAwesomeIcon icon={faStar} color="#FFA242" key={i} />
+                  );
                 }
               }
 
               if (countHalfStar !== undefined) {
                 for (let j = 0; j < countHalfStar; j++) {
                   array.push(
-                    <FontAwesomeIcon icon={faStarHalfStroke} color="#FFA242" />
+                    <FontAwesomeIcon
+                      icon={faStarHalfStroke}
+                      color="#FFA242"
+                      key={j + 10}
+                    />
                   );
                 }
               }
