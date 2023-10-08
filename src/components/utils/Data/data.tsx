@@ -43,8 +43,8 @@ const shopData = [
     brand: "Wrangler Authentics",
     title: "Men's Regular Fit Comfort Flex Waist Jean",
     price: 29,
-    rating: 4.2,
-    reviews: 2012,
+    rating: 3.7,
+    reviews: 33298,
   },
   {
     id: 1,
@@ -54,15 +54,6 @@ const shopData = [
     price: 47,
     rating: 4.6,
     reviews: 11200,
-  },
-  {
-    id: 2,
-    img: "/imgs/shop/jeans3.webp",
-    brand: "Amazon Essentials",
-    title: "Men's Athletic-Fit Stretch Jean",
-    price: 35,
-    rating: 1.7,
-    reviews: 323,
   },
   {
     id: 2,
