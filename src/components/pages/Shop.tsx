@@ -50,32 +50,6 @@ export const Shop: React.FC = () => {
     }
   };
 
-  const sortButtonEffect = () => {
-    let list = document.querySelector<HTMLElement>(".shop-list");
-
-    if (list) {
-      list.style.opacity = "0";
-    }
-
-    let timer = setTimeout(() => {
-      if (list) {
-        list.style.transition = "all 0.4s linear";
-      }
-    }, 100);
-
-    let timer2 = setTimeout(() => {
-      if (list) {
-        list.style.opacity = "1";
-      }
-    }, 150);
-
-    let timer3 = setTimeout(() => {
-      if (list) {
-        list.style.transition = "none";
-      }
-    }, 550);
-  };
-
   useEffect(() => {
     setShopDataState(shopData);
   }, []);
@@ -100,7 +74,6 @@ export const Shop: React.FC = () => {
             <button
               onClick={(e) => {
                 handleSortButton(e, "high");
-                sortButtonEffect();
               }}
             >
               Price: High to Low
@@ -108,7 +81,6 @@ export const Shop: React.FC = () => {
             <button
               onClick={(e) => {
                 handleSortButton(e, "low");
-                sortButtonEffect();
               }}
             >
               Price: Low to High
