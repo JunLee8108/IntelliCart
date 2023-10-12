@@ -5,6 +5,7 @@ import { ForgotPassword } from "../utils/Account/ForgotPassword";
 import { useState } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import React from "react";
+import {AppDispatch} from "../../store";
 
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -30,7 +31,7 @@ export const Account: React.FC = () => {
         setEmail('');
         setPassword('');
       }
-    });    
+    });
   }
 
   if (category === "login") {

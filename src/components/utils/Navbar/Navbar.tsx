@@ -15,7 +15,7 @@ export const Navbar: React.FC = () => {
   const [isClickMobileMenu, clickMobileMenu] = useState(false);
   const [handleMobileModal, setHandleMobileModal] = useState(false);
   const user = JSON.parse(localStorage.getItem('user') || '{}');
-  // let obj = JSON.parse(user);
+  console.log(user);
   const clearNavbar = () => {
     const handleLi = document.querySelectorAll<HTMLElement>(".navbar-item");
     for (let i = 0; i < handleLi.length; i++) {
