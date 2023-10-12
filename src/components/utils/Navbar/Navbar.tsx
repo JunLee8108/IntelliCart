@@ -14,7 +14,8 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const [isClickMobileMenu, clickMobileMenu] = useState(false);
   const [handleMobileModal, setHandleMobileModal] = useState(false);
-
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  // let obj = JSON.parse(user);
   const clearNavbar = () => {
     const handleLi = document.querySelectorAll<HTMLElement>(".navbar-item");
     for (let i = 0; i < handleLi.length; i++) {
@@ -115,7 +116,7 @@ export const Navbar: React.FC = () => {
                 }}
                 key={index}
               >
-                {navbarItem[index]}
+                {navbarItem[index]==="ACCOUNT"? user===null? navbarItem[index]: user.lastName :navbarItem[index]}
               </li>
             );
           })}

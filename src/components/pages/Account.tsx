@@ -3,10 +3,12 @@ import "./Account.css";
 import { Register } from "../utils/Account/Register";
 import { ForgotPassword } from "../utils/Account/ForgotPassword";
 import { useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
 import React from "react";
 
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import {loginUser} from '../../features/userSlice';
 
 export const Account: React.FC = () => {
   const { category } = useParams();
@@ -14,10 +16,21 @@ export const Account: React.FC = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {loading, error} = useSelector((state: any) => state.user);
+
+  const dispatch = useDispatch();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const { data } = await axios.post("/login", { email, password });
+    let userCredentials={
+      email, password
+    }
+    dispatch(loginUser(userCredentials)).then((result: any) => {
+      if(result.payload){
+        setEmail('');
+        setPassword('');
+      }
+    });    
   }
 
   if (category === "login") {
@@ -58,7 +71,12 @@ export const Account: React.FC = () => {
                 >
                   Forgot your password?
                 </p>
-                <button type="submit">LOGIN</button>
+                <button type="submit">
+                  {loading?'Loading..' : "LOGIN"}
+                </button>
+                {error&&(
+                  <div className='alert alert-danger' role='alert'>{error}</div>
+                )}
                 <p className="line">OR</p>
                 <p className="login-register">
                   <span

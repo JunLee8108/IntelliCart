@@ -78,7 +78,7 @@ app.post("/register", async (req, res) => {
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Verify Your Email Address - IntelliCart",
-      text: `This link will be expired in 2 minutes. Please verify your email address by clicking the following link: 
+      text: `This link will be expired in 2 minutes. Please verify your email address by clicking the following link:
       ${process.env.CLIENT_URL}/verify-email/${verificationToken}`,
     };
 
@@ -128,6 +128,9 @@ app.post("/login", async (req, res) => {
         (err, token) => {
           res.cookie("token", token).json({
             id: foundUser._id,
+            lastName: foundUser.lastname,
+            email: email,
+            loggedIn: true,
           });
         }
       );
