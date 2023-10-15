@@ -32,6 +32,7 @@ export const Account: React.FC = () => {
         setEmail('');
         setPassword('');
       }
+      window.location.reload();
     });
   }
 
