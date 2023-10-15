@@ -10,6 +10,7 @@ import {AppDispatch} from "../../store";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import {loginUser} from '../../features/userSlice';
+import {Home} from './Home';
 
 export const Account: React.FC = () => {
   const { category } = useParams();
@@ -18,7 +19,7 @@ export const Account: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {loading, error} = useSelector((state: any) => state.user);
-
+  const user = JSON.parse(sessionStorage.getItem('user') || 'null');
   const dispatch = useDispatch();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -34,7 +35,7 @@ export const Account: React.FC = () => {
     });
   }
 
-  if (category === "login") {
+  if (category === "login" && !user) {
     return (
       <>
         <div className="account-container">
@@ -96,6 +97,8 @@ export const Account: React.FC = () => {
         </div>
       </>
     );
+  } else if (category === "login" && user){
+    return <Home />;
   } else if (category === "register") {
     return <Register />;
   } else if (category === "forgot-password") {

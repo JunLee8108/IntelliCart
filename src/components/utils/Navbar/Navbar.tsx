@@ -14,8 +14,8 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const [isClickMobileMenu, clickMobileMenu] = useState(false);
   const [handleMobileModal, setHandleMobileModal] = useState(false);
-  const user = JSON.parse(localStorage.getItem('user') || '{}');
-  console.log(user);
+  const user = JSON.parse(sessionStorage.getItem('user') || 'null');
+
   const clearNavbar = () => {
     const handleLi = document.querySelectorAll<HTMLElement>(".navbar-item");
     for (let i = 0; i < handleLi.length; i++) {
@@ -116,21 +116,10 @@ export const Navbar: React.FC = () => {
                 }}
                 key={index}
               >
-                {navbarItem[index]==="ACCOUNT"? user===null? navbarItem[index]: user.lastName :navbarItem[index]}
+                {navbarItem[index]==="ACCOUNT"? user===null? navbarItem[index]: user.lastName : navbarItem[index]}
               </li>
             );
           })}
-          {/* <li className="navbar-item-search">
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className="navbar-magnifying-glass"
-            />
-            <input
-              type="text"
-              placeholder="Search.."
-              className="navbar-search-input"
-            ></input>
-          </li> */}
         </ul>
       </nav>
 
