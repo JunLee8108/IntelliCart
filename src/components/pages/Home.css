@@ -251,7 +251,7 @@
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  z-index: 999;
+  z-index: 500;
   opacity: 0.5;
   font-weight: 500;
 }

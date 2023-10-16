@@ -3,6 +3,7 @@ import ScrollToTop from "./components/utils/Helpers/ScrollToTop";
 import { Home } from "./components/pages/Home";
 import { Shop } from "./components/pages/Shop";
 import { Account } from "./components/pages/Account";
+import { Profile } from "./components/pages/Profile";
 import { Cart } from "./components/pages/Cart";
 import { EmailVerification } from "./components/utils/Helpers/EmailVerification";
 import { Navbar } from "./components/utils/Navbar/Navbar";
@@ -32,6 +33,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/account/:category" element={<Account />} />
+            <Route path="/profile/:category" element={<Profile />} />
             <Route path="/cart" element={<Cart />} />
             <Route
               path="/verify-email/:token"

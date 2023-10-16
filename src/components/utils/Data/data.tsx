@@ -34,7 +34,8 @@ const CardData: Cardtype[] = [
   },
 ];
 
-const navbarItem: string[] = ["SHOP", "CART", "ACCOUNT"];
+const navbarItem: string[] = ["ACCOUNT", "SHOP", "CART"];
+const accountSubmenu: string[] = ["Edit Profile", "History", "Sign Out"];
 
 const shopData = [
   {
@@ -66,4 +67,4 @@ const shopData = [
   },
 ];
 
-export { CardData, navbarItem, shopData };
+export { CardData, navbarItem, accountSubmenu, shopData };
