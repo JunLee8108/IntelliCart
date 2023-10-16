@@ -2,15 +2,14 @@ import "./Account.css";
 
 import { Register } from "../utils/Account/Register";
 import { ForgotPassword } from "../utils/Account/ForgotPassword";
-import { useState } from "react";
-import {useDispatch, useSelector} from "react-redux";
-import React from "react";
-import {AppDispatch} from "../../store";
+import { Loading } from "../utils/Helpers/Loading";
+import { loginUser } from "../../features/userSlice";
 
-import axios from "axios";
+import React from "react";
+import { useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import {loginUser} from '../../features/userSlice';
-import {Home} from './Home';
 
 export const Account: React.FC = () => {
   const { category } = useParams();
@@ -18,25 +17,30 @@ export const Account: React.FC = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {loading, error} = useSelector((state: any) => state.user);
-  const user = JSON.parse(sessionStorage.getItem('user') || 'null');
+  const [isLoading, setLoading] = useState(false);
+  const { loading, error } = useSelector((state: any) => state.user);
+  const user = JSON.parse(sessionStorage.getItem("user") || "null");
   const dispatch = useDispatch();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    let userCredentials={
-      email, password
-    }
+    let userCredentials = {
+      email,
+      password,
+    };
     dispatch(loginUser(userCredentials)).then((result: any) => {
-      if(result.payload){
-        setEmail('');
-        setPassword('');
+      if (result.payload) {
+        setEmail("");
+        setPassword("");
+        setLoading(true);
+        const timer = setTimeout(() => {
+          navigate("/");
+        }, 1000);
       }
-      window.location.reload();
     });
   }
 
-  if (category === "login" && !user) {
+  if (category === "login") {
     return (
       <>
         <div className="account-container">
@@ -74,11 +78,11 @@ export const Account: React.FC = () => {
                 >
                   Forgot your password?
                 </p>
-                <button type="submit">
-                  {loading?'Loading..' : "LOGIN"}
-                </button>
-                {error&&(
-                  <div className='alert alert-danger' role='alert'>{error}</div>
+                <button type="submit">{loading ? "Loading.." : "LOGIN"}</button>
+                {error && (
+                  <div className="alert alert-danger" role="alert">
+                    {error}
+                  </div>
                 )}
                 <p className="line">OR</p>
                 <p className="login-register">
@@ -96,10 +100,10 @@ export const Account: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {isLoading ? <Loading /> : null}
       </>
     );
-  } else if (category === "login" && user){
-    return <Home />;
   } else if (category === "register") {
     return <Register />;
   } else if (category === "forgot-password") {
