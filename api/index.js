@@ -167,8 +167,6 @@ app.get("/profile", (req, res) => {
 app.post("/send-message", (req, res) => {
   const userMessage = req.body.userMessage;
 
-  // console.log(userMessage);
-
   let reply;
   if (userMessage.content === "Hello") {
     reply = {
