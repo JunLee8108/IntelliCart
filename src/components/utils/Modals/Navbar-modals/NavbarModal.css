@@ -24,7 +24,13 @@
   font-weight: bold;
 }
 
-.navbar-modal-container li:nth-child(4) {
+.navbar-modal-container li:first-child {
+  font-size: 14px;
+  list-style-type: none;
+  text-decoration: underline;
+}
+
+.navbar-modal-container li:last-child {
   padding-bottom: 35px;
 }
 

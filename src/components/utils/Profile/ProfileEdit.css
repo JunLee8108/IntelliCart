@@ -1,0 +1,4 @@
+.profile-edit-container {
+  max-width: 800px;
+  min-height: calc(100vh - 10rem);
+}
