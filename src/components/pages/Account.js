@@ -40,6 +40,8 @@ export const Account: React.FC = () => {
     });
   }
 
+  console.log(isLoading);
+
   if (category === "login") {
     return (
       <>

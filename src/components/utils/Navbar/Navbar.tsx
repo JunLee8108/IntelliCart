@@ -9,12 +9,14 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import { navbarItem } from "../Data/data";
 
+import { Fragment } from "react";
+
 export const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isClickMobileMenu, clickMobileMenu] = useState(false);
   const [handleMobileModal, setHandleMobileModal] = useState(false);
-  const user = JSON.parse(sessionStorage.getItem('user') || 'null');
+  const user = JSON.parse(sessionStorage.getItem("user") || "null");
 
   const clearNavbar = () => {
     const handleLi = document.querySelectorAll<HTMLElement>(".navbar-item");
@@ -28,6 +30,14 @@ export const Navbar: React.FC = () => {
     clearNavbar();
     e.currentTarget.style.color = "#00a800";
     e.currentTarget.style.borderBottom = "2px solid #00a800";
+  };
+
+  const checkLogin = () => {
+    if (user) {
+      navigate("/");
+    } else {
+      navigate("/account/login");
+    }
   };
 
   useEffect(() => {
@@ -103,21 +113,29 @@ export const Navbar: React.FC = () => {
         <ul className="navbar-item-flexbox display-flex">
           {navbarItem.map((a, index) => {
             return (
-              <li
-                className="navbar-item cursor-pointer"
-                onClick={(e) => {
-                  if (navbarItem[index].toLocaleLowerCase() === "account") {
-                    navigate(`/${navbarItem[index].toLocaleLowerCase()}/login`);
-                  } else {
-                    navigate(`/${navbarItem[index].toLocaleLowerCase()}`);
-                  }
-
-                  handleNavbar(e);
-                }}
-                key={index}
-              >
-                {navbarItem[index]==="ACCOUNT"? user===null? navbarItem[index]: user.lastName : navbarItem[index]}
-              </li>
+              <Fragment key={index}>
+                {navbarItem[index].toLocaleLowerCase() === "account" ? (
+                  <li
+                    className="navbar-item cursor-pointer"
+                    onClick={(e) => {
+                      checkLogin();
+                      handleNavbar(e);
+                    }}
+                  >
+                    {user ? user.lastName : navbarItem[index]}
+                  </li>
+                ) : (
+                  <li
+                    className="navbar-item cursor-pointer"
+                    onClick={(e) => {
+                      navigate(`/${navbarItem[index].toLocaleLowerCase()}`);
+                      handleNavbar(e);
+                    }}
+                  >
+                    {navbarItem[index]}
+                  </li>
+                )}
+              </Fragment>
             );
           })}
         </ul>
