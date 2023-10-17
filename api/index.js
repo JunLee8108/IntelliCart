@@ -118,6 +118,11 @@ app.get("/verify-email/:token", async (req, res) => {
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const foundUser = await User.findOne({ email });
+
+  if (!foundUser) {
+    return res.send({ message: "User doesn't exist" });
+  }
+
   if (foundUser) {
     const passOk = bcrypt.compareSync(password, foundUser.password);
     if (passOk) {
@@ -128,12 +133,15 @@ app.post("/login", async (req, res) => {
         (err, token) => {
           res.cookie("token", token).json({
             id: foundUser._id,
+            firstName: foundUser.firstname,
             lastName: foundUser.lastname,
             email: email,
             loggedIn: true,
           });
         }
       );
+    } else {
+      return res.send({ message: "Invalid password" });
     }
   }
 });
@@ -160,6 +168,17 @@ app.get("/profile", (req, res) => {
     });
   } else {
     res.status(401).json("no token");
+  }
+});
+
+// Profile Edit
+app.post("/profile/edit", async (req, res) => {
+  const { firstname, lastname, email } = req.body;
+
+  const existingUser = await User.findOne({ email });
+
+  if (existingUser) {
+    return res.send({ message: "Email already exists" });
   }
 });
 
