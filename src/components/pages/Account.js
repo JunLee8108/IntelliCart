@@ -19,7 +19,7 @@ export const Account: React.FC = () => {
   const [password, setPassword] = useState("");
   const [isLoading, setLoading] = useState(false);
   const { loading, error } = useSelector((state: any) => state.user);
-  const user = JSON.parse(sessionStorage.getItem("user") || "null");
+
   const dispatch = useDispatch();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -29,7 +29,11 @@ export const Account: React.FC = () => {
       password,
     };
     dispatch(loginUser(userCredentials)).then((result: any) => {
-      if (result.payload) {
+      if (result.payload.message === "User doesn't exist") {
+        alert("Invalid Email!");
+      } else if (result.payload.message === "Invalid password") {
+        alert("Invalid Password!");
+      } else {
         setEmail("");
         setPassword("");
         setLoading(true);
