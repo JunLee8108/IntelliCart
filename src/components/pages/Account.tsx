@@ -4,9 +4,10 @@ import { Register } from "../utils/Account/Register";
 import { ForgotPassword } from "../utils/Account/ForgotPassword";
 import { Loading } from "../utils/Helpers/Loading";
 import { loginUser } from "../../features/userSlice";
+import {AppDispatch} from "./store.js";
 
 import React from "react";
-import { useState } from "react";
+import { useState, FunctionComponent } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
@@ -20,7 +21,7 @@ export const Account: React.FC = () => {
   const [isLoading, setLoading] = useState(false);
   const { loading, error } = useSelector((state: any) => state.user);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

@@ -35,11 +35,22 @@ export const Navbar: React.FC = () => {
 
   const handleSubmenu = (content: string) => {
     const contentLowerCase = content.toLocaleLowerCase();
+    console.log(contentLowerCase);
     if (contentLowerCase.includes("edit")) {
       navigate("/profile/edit");
     } else if (contentLowerCase.includes("history")) {
       navigate("/profile/history");
+    } else if (contentLowerCase.includes("sign out")) {
+      let credentials = {
+        loading: true,
+        user: null,
+        error: null,
+      };      
+      sessionStorage.setItem('user', JSON.stringify(null));
+      setActiveIndex(-1);
+      navigate("/");
     }
+
   };
 
   useEffect(() => {

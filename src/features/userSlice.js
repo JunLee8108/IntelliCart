@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const loginUser = createAsyncThunk(
   "user/loginUser",
-  async (userCredentials) => {
+  async (userCredentials: any) => {
     const email = userCredentials.email;
     const password = userCredentials.password;
     const request = await axios.post("login", { email, password });
