@@ -66,7 +66,7 @@
 
 .navbar-submenu {
   position: absolute;
-  left: -20px;
+  left: -40px;
   top: 50px;
   opacity: 0;
   background-color: white;
@@ -78,14 +78,14 @@
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 15px;
-  padding-right: 30px;
+  padding-right: 45px;
   border-radius: 5px;
   text-align: left;
 }
 
 .navbar-submenu-list {
   list-style-type: none;
-  padding: 15px 15px 15px 15px;
+  padding: 15px 20px 15px 20px;
   width: 100%;
   z-index: 999;
   text-align: left;

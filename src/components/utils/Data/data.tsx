@@ -35,7 +35,12 @@ const CardData: Cardtype[] = [
 ];
 
 const navbarItem: string[] = ["ACCOUNT", "SHOP", "CART"];
-const accountSubmenu: string[] = ["Edit Profile", "History", "Sign Out"];
+const accountSubmenu: string[] = [
+  "Edit Profile",
+  "Upload Image",
+  "History",
+  "Sign Out",
+];
 
 const shopData = [
   {
