@@ -150,10 +150,100 @@ app.post("/login", async (req, res) => {
 app.post("/forgot-password", async (req, res) => {
   const { email } = req.body;
   const existingUser = await User.findOne({ email });
+
   if (!existingUser) {
-    return res.send({ message: "Username doesn't exists" });
-  } else {
-    return res.send({ message: "Username exists" });
+    return res.status(400).json({
+      status: "error",
+      message: "User doesn't exist",
+    });
+  }
+
+  if (existingUser) {
+    if (!existingUser.isVerified) {
+      return res.status(400).json({
+        status: "error",
+        message: "You have to verify your account first",
+      });
+    }
+  }
+
+  const verificationToken = jwt.sign({ userId: existingUser._id }, jwtSecret, {
+    expiresIn: "120s",
+  });
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  // Send a verification email
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: "Reset Your Password Link - IntelliCart",
+    text: `This link will be expired in 2 minutes. Please Visit this link to reset your password:
+    ${process.env.CLIENT_URL}/reset-password/${verificationToken}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return res.status(500).send({ message: "Error sending email" });
+    } else {
+      return res.status(201).json("email ok");
+    }
+  });
+
+  res.status(200).send({
+    status: "success",
+    message: "We just sent an email to you, so please check your email.",
+  });
+});
+
+app.get("/reset-password/:token", async (req, res) => {
+  try {
+    const { userId } = jwt.verify(req.params.token, jwtSecret);
+    const user = await User.findById(userId);
+    if (!user) return res.status(400).send({ message: "User not found" });
+
+    res.send({ message: "Email verified successfully" });
+  } catch (error) {
+    if (error instanceof jwt.TokenExpiredError) {
+      return res.status(400).send({ message: "Verification link has expired" });
+    }
+    return res.status(400).send({ message: "Invalid verification link" });
+  }
+});
+
+app.post("/reset-password/:token", async (req, res) => {
+  try {
+    const { password } = req.body;
+    const { userId } = jwt.verify(req.params.token, jwtSecret);
+
+    const user = await User.findById(userId);
+
+    if (!user)
+      return res.status(400).json({
+        status: "error",
+        message: "User doesn't exist!",
+      });
+
+    const hashedPassword = bcrypt.hashSync(password);
+
+    user.password = hashedPassword;
+    await user.save();
+
+    res.status(200).send({
+      status: "success",
+      message: "Successfully changed your password!",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      status: "error",
+      message: "Failed to change your password.",
+    });
   }
 });
 

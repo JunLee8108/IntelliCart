@@ -1,24 +1,22 @@
-// Use same css file with RegisterModal.tsx
 import "./RegisterModal.css";
-import "./ForgotPasswordFailedModal.css";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
-  setFailed: React.Dispatch<React.SetStateAction<boolean>>;
-  errorMessage: string;
+  setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const ForgotPasswordFailedModal: React.FC<Props> = ({
-  setFailed,
-  errorMessage,
-}) => {
+export const ForgotPasswordModal: React.FC<Props> = ({ setSuccess }) => {
   const [fade, setFade] = useState("");
 
+  const navigate = useNavigate();
+
   const closeModalandNavigate = () => {
-    setFailed(false);
+    setSuccess(false);
+    navigate("/account/login");
   };
 
   useEffect(() => {
@@ -43,22 +41,17 @@ export const ForgotPasswordFailedModal: React.FC<Props> = ({
           }
         }}
       >
-        <div
-          className={
-            "forgot-password-failed-modal-container register-modal-container " +
-            fade
-          }
-        >
+        <div className={"register-modal-container " + fade}>
           <div className="register-modal-logo-container">
             <h3>IntelliCart</h3>
           </div>
 
           <div className="register-modal-text-container">
             <FontAwesomeIcon
-              icon={faTriangleExclamation}
-              className="register-modal-warning"
+              icon={faSquareCheck}
+              className="register-modal-success"
             />
-            <p>{errorMessage}</p>
+            <p>Please check your email to reset your password.</p>
           </div>
 
           <div className="register-modal-button-container">
