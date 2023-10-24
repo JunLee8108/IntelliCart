@@ -35,7 +35,7 @@ export const Navbar: React.FC = () => {
 
   const handleSubmenu = (content: string) => {
     const contentLowerCase = content.toLocaleLowerCase();
-    console.log(contentLowerCase);
+
     if (contentLowerCase.includes("edit")) {
       navigate("/profile/edit");
     } else if (contentLowerCase.includes("history")) {
@@ -45,12 +45,11 @@ export const Navbar: React.FC = () => {
         loading: true,
         user: null,
         error: null,
-      };      
-      sessionStorage.setItem('user', JSON.stringify(null));
+      };
+      sessionStorage.setItem("user", JSON.stringify(null));
       setActiveIndex(-1);
       navigate("/");
     }
-
   };
 
   useEffect(() => {

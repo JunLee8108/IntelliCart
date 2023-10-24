@@ -6,6 +6,7 @@ import { Account } from "./components/pages/Account";
 import { Profile } from "./components/pages/Profile";
 import { Cart } from "./components/pages/Cart";
 import { EmailVerification } from "./components/utils/Helpers/EmailVerification";
+import { ForgotPasswordVerification } from "./components/utils/Helpers/ForgotPasswordVerification";
 import { Navbar } from "./components/utils/Navbar/Navbar";
 import { Footer } from "./components/utils/Footer/Footer";
 import axios from "axios";
@@ -38,6 +39,10 @@ function App() {
             <Route
               path="/verify-email/:token"
               element={<EmailVerification />}
+            />
+            <Route
+              path="/reset-password/:token"
+              element={<ForgotPasswordVerification />}
             />
           </Routes>
         </Fade>
