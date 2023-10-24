@@ -106,7 +106,7 @@ export const ForgotPasswordVerification: React.FC = () => {
 
               {isPasswordSame ? (
                 <div className="forgot-passoword-email-notmatch">
-                  <p>Emails are not the same!</p>
+                  <p>Passwords are not the same!</p>
                 </div>
               ) : null}
 
