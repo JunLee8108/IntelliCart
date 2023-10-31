@@ -4,6 +4,8 @@
   align-items: center;
   flex-direction: column;
   min-height: calc(100vh - 10rem);
+  opacity: 0;
+  animation: flash 0.7s 0.2s forwards;
 }
 
 .loading-before-container h1 {

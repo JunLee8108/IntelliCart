@@ -8,6 +8,8 @@ div {
   min-height: calc(100vh - 10rem);
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  animation: flash 0.7s 0.2s forwards;
 }
 
 .login {

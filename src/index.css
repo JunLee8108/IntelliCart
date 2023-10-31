@@ -33,3 +33,19 @@ span,
 li {
   transform: rotate(0.04deg);
 }
+
+/* div {
+  opacity: 0;
+  animation: flash 0.7s 0.2s forwards;
+} */
+
+/* body {
+  opacity: 0;
+  animation: flash 0.7s 0.2s forwards;
+} */
+
+@keyframes flash {
+  to {
+    opacity: 1;
+  }
+}

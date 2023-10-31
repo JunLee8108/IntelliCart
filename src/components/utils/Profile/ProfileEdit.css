@@ -7,6 +7,8 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  opacity: 0;
+  animation: flash 0.7s 0.2s forwards;
 }
 
 .profile-edit-introduction {
