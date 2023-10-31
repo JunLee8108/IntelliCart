@@ -6,16 +6,12 @@ import { Home } from "./components/pages/Home";
 import { Navbar } from "./components/utils/Navbar/Navbar";
 import { Footer } from "./components/utils/Footer/Footer";
 import { Loading } from "./components/utils/Helpers/Loading";
-// import { Cart } from "./components/pages/Cart";
-// import { EmailVerification } from "./components/utils/Helpers/EmailVerification";
-// import { ForgotPasswordVerification } from "./components/utils/Helpers/ForgotPasswordVerification";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { Routes, Route } from "react-router-dom";
-
 import axios from "axios";
 
 const Shop = React.lazy(() =>
@@ -54,13 +50,15 @@ const ForgotPasswordVerification = React.lazy(() =>
 );
 
 function App() {
-  axios.defaults.baseURL = "http://localhost:4001";
+  axios.defaults.baseURL =
+    "https://port-0-node-express-jvpb2mloesnlp2.sel5.cloudtype.app/";
   axios.defaults.withCredentials = true;
 
   return (
     <>
       <ScrollToTop />
       <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -112,6 +110,7 @@ function App() {
           }
         />
       </Routes>
+
       <Footer />
     </>
   );
