@@ -7,7 +7,7 @@ import { loginUser } from "../../features/userSlice";
 import { AppDispatch } from "./store.js";
 
 import React from "react";
-import { useState, FunctionComponent } from "react";
+import { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";

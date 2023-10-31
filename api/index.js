@@ -23,7 +23,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
 
-app.listen(4001);
+app.listen(3001);
+
 app.use(
   cors({
     credentials: true,
