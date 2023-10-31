@@ -26,7 +26,7 @@ export const NavbarModal: React.FC<Props> = ({
           className={
             handleMobileModal
               ? "navbar-modal-bg animated-bg"
-              : "navbar-modal-bg animated-bg-hide"
+              : "navbar-modal-bg animated-hide"
           }
           onClick={(e) => {
             const target = document.querySelector(".navbar-modal-bg");
