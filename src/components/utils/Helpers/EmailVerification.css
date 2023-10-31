@@ -4,6 +4,8 @@
   align-items: center;
   min-height: calc(100vh - 10rem);
   background-color: rgba(0, 0, 0, 0.01);
+  opacity: 0;
+  animation: flash 0.7s 0.2s forwards;
 }
 
 @media screen and (max-width: 767px) {

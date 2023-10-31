@@ -3,6 +3,8 @@
   min-height: calc(100vh - 10rem);
   margin-left: auto;
   margin-right: auto;
+  opacity: 0;
+  animation: flash 0.7s 0.2s forwards;
 }
 
 .home-top-bg-container {

@@ -40,33 +40,30 @@ function App() {
     <>
       <ScrollToTop />
       <Navbar />
-      <TransitionGroup>
-        <Fade key={location.key}>
-          <Routes location={location}>
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/shop" element={<Shop />} /> */}
-            <Route
-              path="/shop"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <Shop />
-                </Suspense>
-              }
-            />
-            <Route path="/account/:category" element={<Account />} />
-            <Route path="/profile/:category" element={<Profile />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route
-              path="/verify-email/:token"
-              element={<EmailVerification />}
-            />
-            <Route
-              path="/reset-password/:token"
-              element={<ForgotPasswordVerification />}
-            />
-          </Routes>
-        </Fade>
-      </TransitionGroup>
+      {/* <TransitionGroup> */}
+      {/* <Fade key={location.key}> */}
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/shop" element={<Shop />} /> */}
+        <Route
+          path="/shop"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Shop />
+            </Suspense>
+          }
+        />
+        <Route path="/account/:category" element={<Account />} />
+        <Route path="/profile/:category" element={<Profile />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/verify-email/:token" element={<EmailVerification />} />
+        <Route
+          path="/reset-password/:token"
+          element={<ForgotPasswordVerification />}
+        />
+      </Routes>
+      {/* </Fade> */}
+      {/* </TransitionGroup> */}
       <Footer />
     </>
   );
