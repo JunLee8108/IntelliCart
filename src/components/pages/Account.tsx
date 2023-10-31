@@ -4,7 +4,7 @@ import { Register } from "../utils/Account/Register";
 import { ForgotPassword } from "../utils/Account/ForgotPassword";
 import { Loading } from "../utils/Helpers/Loading";
 import { loginUser } from "../../features/userSlice";
-import {AppDispatch} from "./store.js";
+import { AppDispatch } from "./store.js";
 
 import React from "react";
 import { useState, FunctionComponent } from "react";
@@ -39,7 +39,7 @@ export const Account: React.FC = () => {
         setPassword("");
         setLoading(true);
         const timer = setTimeout(() => {
-          navigate("/");
+          navigate("/", { replace: true });
         }, 1000);
       }
     });
