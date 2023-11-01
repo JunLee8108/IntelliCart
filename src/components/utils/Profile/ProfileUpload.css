@@ -1,0 +1,6 @@
+.profile-upload-container {
+  max-width: 800px;
+  min-height: calc(100vh - 10rem);
+  opacity: 0;
+  animation: flash 0.7s 0.2s forwards;
+}
