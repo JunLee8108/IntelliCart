@@ -3,20 +3,34 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSquareCheck,
+  faTriangleExclamation,
+} from "@fortawesome/free-solid-svg-icons";
+
+type errorObject = {
+  status?: string;
+  message?: string;
+};
 
 interface Props {
   setSuccessModal: React.Dispatch<React.SetStateAction<boolean>>;
+  message: errorObject;
 }
 
-export const RegisterModal: React.FC<Props> = ({ setSuccessModal }) => {
+export const RegisterModal: React.FC<Props> = ({
+  setSuccessModal,
+  message,
+}) => {
   const [fade, setFade] = useState("");
 
   const navigate = useNavigate();
 
   const closeModalandNavigate = () => {
     setSuccessModal(false);
-    navigate("/account/login");
+    if (message.status !== "error") {
+      navigate("/account/login");
+    }
   };
 
   useEffect(() => {
@@ -47,12 +61,32 @@ export const RegisterModal: React.FC<Props> = ({ setSuccessModal }) => {
           </div>
 
           <div className="register-modal-text-container">
-            <FontAwesomeIcon
-              icon={faSquareCheck}
-              className="register-modal-success"
-            />
-            <p>Succesfully registered!</p>
-            <p>Check your email and verificate your account.</p>
+            {message.status === "error" ? (
+              <>
+                <FontAwesomeIcon
+                  icon={faTriangleExclamation}
+                  className="register-modal-warning"
+                />
+                {message.message ===
+                "Failed to send a verfication email to you" ? (
+                  <p>{message.message}</p>
+                ) : (
+                  <>
+                    <p>Your Email already exists!</p>
+                    <p>Please try again with a different email.</p>
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                <FontAwesomeIcon
+                  icon={faSquareCheck}
+                  className="register-modal-success"
+                />
+                <p>Succesfully registered!</p>
+                <p>Check your email and verificate your account.</p>
+              </>
+            )}
           </div>
 
           <div className="register-modal-button-container">

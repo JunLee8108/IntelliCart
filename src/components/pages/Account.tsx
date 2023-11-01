@@ -38,9 +38,7 @@ export const Account: React.FC = () => {
       } else {
         setEmail("");
         setPassword("");
-        const timer = setTimeout(() => {
-          navigate("/", { replace: true });
-        }, 1000);
+        navigate("/", { replace: true });
       }
       setLoading(false);
     });
