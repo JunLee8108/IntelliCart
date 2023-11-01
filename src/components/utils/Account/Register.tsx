@@ -1,9 +1,13 @@
 import "./Register.css";
 import { Loading } from "../Helpers/Loading";
 import { RegisterModal } from "../Modals/Account-modals/RegisterModal";
-import { RegisterFailedModal } from "../Modals/Account-modals/RegisterFailedModal";
 import { useState } from "react";
 import axios from "axios";
+
+type errorObject = {
+  status?: string;
+  message?: string;
+};
 
 export const Register: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -15,8 +19,8 @@ export const Register: React.FC = () => {
   const [isEmailSame, setEmailSame] = useState(false);
   const [isPasswordSame, setPasswordSame] = useState(false);
   const [isSuccessModal, setSuccessModal] = useState(false);
-  const [isFailedModal, setFailedModal] = useState(false);
   const [isLoading, setLoading] = useState(false);
+  const [message, setMessage] = useState<errorObject>({});
 
   const handleConfirm = (a: boolean, b: boolean) => {
     setLoading(false);
@@ -48,18 +52,14 @@ export const Register: React.FC = () => {
         lastname,
         password,
       });
-
-      if (data === "ok") {
-        setLoading(false);
-        setSuccessModal(true);
-      } else if (data.message === "Username already exists") {
-        setLoading(false);
-        setFailedModal(true);
-      }
+      setMessage(data);
+      setSuccessModal(true);
     } catch (error) {
-      setLoading(false);
-      alert("Error!");
+      setMessage((error as any).response.data);
+      setSuccessModal(true);
     }
+
+    setLoading(false);
   }
 
   return (
@@ -174,11 +174,7 @@ export const Register: React.FC = () => {
       {isLoading ? <Loading /> : null}
 
       {isSuccessModal ? (
-        <RegisterModal setSuccessModal={setSuccessModal} />
-      ) : null}
-
-      {isFailedModal ? (
-        <RegisterFailedModal setFailedModal={setFailedModal} />
+        <RegisterModal setSuccessModal={setSuccessModal} message={message} />
       ) : null}
     </>
   );
