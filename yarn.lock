@@ -2163,13 +2163,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-transition-group@^4.4.6":
-  version "4.4.6"
-  resolved "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.6.tgz"
-  integrity sha512-VnCdSxfcm08KjsJVQcfBmhEQAPnLB8G08hAxn39azX1qYBQ/5RVQuoHuKIcfKOdncuaUvEpFKFzEvbtIMsfVew==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react@*", "@types/react@^16.8 || ^17.0 || ^18.0", "@types/react@^18.2.21":
   version "18.2.21"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.2.21.tgz"

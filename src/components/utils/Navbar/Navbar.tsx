@@ -1,15 +1,16 @@
 import "./Navbar.css";
 import { NavbarModal } from "../Modals/Navbar-modals/NavbarModal";
 import { accountSubmenu } from "../Data/data";
+import { navbarItem } from "../Data/data";
+
 import { MouseEvent, useEffect, useState } from "react";
+import { Fragment } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useLocation } from "react-router-dom";
-import { navbarItem } from "../Data/data";
-
-import { Fragment } from "react";
+import axios from "axios";
 
 export const Navbar: React.FC = () => {
   const navigate = useNavigate();
@@ -17,11 +18,11 @@ export const Navbar: React.FC = () => {
   const [isClickMobileMenu, clickMobileMenu] = useState(false);
   const [handleMobileModal, setHandleMobileModal] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
-
-  const user = JSON.parse(sessionStorage.getItem("user") || "null");
+  const [isUserLogin, setUserLogin] = useState(false);
+  const [userLastName, setUserLastName] = useState("");
 
   const checkLogin = (e: MouseEvent<HTMLElement>) => {
-    if (user) {
+    if (isUserLogin) {
       navigate("/");
     } else {
       navigate("/account/login");
@@ -40,15 +41,18 @@ export const Navbar: React.FC = () => {
       navigate("/profile/edit");
     } else if (contentLowerCase.includes("history")) {
       navigate("/profile/history");
+    } else if (contentLowerCase.includes("upload")) {
+      navigate("/profile/upload");
     } else if (contentLowerCase.includes("sign out")) {
       let credentials = {
         loading: true,
         user: null,
         error: null,
       };
-      sessionStorage.setItem("user", JSON.stringify(null));
+      sessionStorage.removeItem("user");
       setActiveIndex(-1);
       navigate("/");
+      navigate(0);
     }
   };
 
@@ -73,6 +77,33 @@ export const Navbar: React.FC = () => {
         location.pathname.toLowerCase().includes(item.toLowerCase())
       )
     );
+
+    const userVerification = async () => {
+      const userData = JSON.parse(sessionStorage.getItem("user") as string);
+
+      if (!userData) {
+        return setUserLogin(false);
+      }
+
+      const token = userData.token;
+
+      try {
+        let { data } = await axios.post("/login-verification", {
+          token,
+        });
+        setUserLogin(true);
+        setUserLastName(data.lastname);
+      } catch (error) {
+        alert("Invalid Token!");
+        setUserLogin(false);
+        sessionStorage.removeItem("user");
+        setActiveIndex(-1);
+        navigate("/");
+        navigate(0);
+      }
+    };
+
+    userVerification();
   }, [location.pathname]);
 
   return (
@@ -83,7 +114,6 @@ export const Navbar: React.FC = () => {
             className="navbar-title cursor-pointer"
             onClick={() => {
               navigate("/");
-              // clearNavbar();
               setActiveIndex(-1);
               if (handleMobileModal) {
                 setHandleMobileModal(false);
@@ -123,13 +153,13 @@ export const Navbar: React.FC = () => {
               <Fragment key={index}>
                 {navbarItem[index].toLocaleLowerCase() === "account" ? (
                   <>
-                    {user ? (
+                    {isUserLogin ? (
                       <li
                         className={`navbar-item cursor-pointer ${
                           activeIndex === index ? "active" : ""
                         }`}
                       >
-                        {user.lastName}
+                        {userLastName}
 
                         <ul className="navbar-submenu">
                           {accountSubmenu.map((content, index) => {

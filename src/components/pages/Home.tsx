@@ -1,6 +1,8 @@
 import "./Home.css";
 import { Chatbot } from "../utils/Helpers/Chatbot";
 import { CardData } from "../utils/Data/data";
+import UserLoginVerification from "../utils/Helpers/UserLoginVerification";
+
 import { useEffect } from "react";
 import React from "react";
 
@@ -60,7 +62,8 @@ export const Home: React.FC = () => {
     };
   }, []);
 
-  /************** Return **************/
+  const isUserLogin = UserLoginVerification();
+
   return (
     <>
       <div className="home-container">
@@ -152,7 +155,11 @@ export const Home: React.FC = () => {
         <div className="home-startBtn display-flex">
           <button
             onClick={() => {
-              navigate("/account/login");
+              if (isUserLogin.isUserLogin) {
+                navigate("/profile/upload");
+              } else {
+                navigate("/account/login");
+              }
             }}
           >
             START INTELIICART

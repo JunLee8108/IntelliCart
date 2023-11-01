@@ -9,17 +9,13 @@ export const loginUser = createAsyncThunk(
     const request = await axios.post("login", { email, password });
     const response = await request.data;
 
-    if (
-      response.message === "User doesn't exist" ||
-      response.message === "Invalid password"
-    ) {
+    if (response.status === "error") {
       return response;
     }
 
     sessionStorage.setItem("user", JSON.stringify(response));
 
     return response;
-    // return userCredentials;
   }
 );
 

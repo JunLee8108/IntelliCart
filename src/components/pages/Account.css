@@ -2,6 +2,14 @@ div {
   box-sizing: border-box;
 }
 
+.login-warning {
+  width: 100%;
+  display: flex;
+  min-height: calc(100vh - 10rem);
+  justify-content: center;
+  align-items: center;
+}
+
 .account-container {
   width: 100%;
   display: flex;
