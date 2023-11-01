@@ -25,6 +25,7 @@ export const Account: React.FC = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setLoading(true);
     let userCredentials = {
       email,
       password,
@@ -37,11 +38,11 @@ export const Account: React.FC = () => {
       } else {
         setEmail("");
         setPassword("");
-        setLoading(true);
         const timer = setTimeout(() => {
           navigate("/", { replace: true });
         }, 1000);
       }
+      setLoading(false);
     });
   }
 
