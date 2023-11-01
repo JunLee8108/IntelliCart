@@ -53,6 +53,7 @@ function App() {
   // TODO: error
   axios.defaults.baseURL =
     "https://port-0-node-express-jvpb2mloesnlp2.sel5.cloudtype.app";
+  // axios.defaults.baseURL = "http://localhost:3001";
   axios.defaults.withCredentials = true;
 
   return (

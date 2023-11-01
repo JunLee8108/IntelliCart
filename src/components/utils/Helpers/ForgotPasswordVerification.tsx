@@ -1,4 +1,5 @@
 import "./ForgotPasswordVerification.css";
+import "../Account/ForgotPassword.css";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -119,7 +120,7 @@ export const ForgotPasswordVerification: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="email-verificatioin-container">
+        <div className="forgot-password-verificatioin-container">
           <PropagateLoader
             color="#36D7B7"
             loading={true}
