@@ -1,5 +1,6 @@
 import "./Shop.css";
 import { shopData } from "../utils/Data/data";
+import { LoadingHeight100 } from "../utils/Helpers/LoadingHeight100";
 import { LoadingBeforeLogin } from "../utils/Helpers/LoadingBeforeLogIn";
 import UserLoginVerification from "../utils/Helpers/UserLoginVerification";
 
@@ -25,6 +26,7 @@ interface shop {
 
 export const Shop: React.FC = () => {
   const [shopDataState, setShopDataState] = useState<shop[]>([]);
+  const user = sessionStorage.getItem("user");
   const isUserLogin = UserLoginVerification();
 
   const handleSortButton = (
@@ -183,6 +185,8 @@ export const Shop: React.FC = () => {
             })}
           </div>
         </div>
+      ) : user ? (
+        <LoadingHeight100 />
       ) : (
         <LoadingBeforeLogin />
       )}
