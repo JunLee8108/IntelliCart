@@ -1,0 +1,8 @@
+.loading-height-container {
+  width: 100%;
+  min-height: calc(100vh - 7rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
