@@ -1,6 +1,7 @@
 import "./Cart.css";
 import { LoadingBeforeLogin } from "../utils/Helpers/LoadingBeforeLogIn";
 import UserLoginVerification from "../utils/Helpers/UserLoginVerification";
+import { Loading } from "../utils/Helpers/Loading";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export const Cart: React.FC = () => {
+  const user = sessionStorage.getItem("user");
   const isUserLogin = UserLoginVerification();
 
   return (
@@ -70,7 +72,10 @@ export const Cart: React.FC = () => {
             </tbody>
           </table>
         </div>
+      ) : user ? (
+        <div style={{ width: "100%", minHeight: "100vh" }}></div>
       ) : (
+        // <Loading />
         <LoadingBeforeLogin />
       )}
     </>
