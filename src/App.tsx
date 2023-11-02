@@ -5,7 +5,7 @@ import ScrollToTop from "./components/utils/Helpers/ScrollToTop";
 import { Home } from "./components/pages/Home";
 import { Navbar } from "./components/utils/Navbar/Navbar";
 import { Footer } from "./components/utils/Footer/Footer";
-import { Loading } from "./components/utils/Helpers/Loading";
+import { LoadingHeight100 } from "./components/utils/Helpers/LoadingHeight100";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -66,7 +66,7 @@ function App() {
         <Route
           path="/shop"
           element={
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<LoadingHeight100 />}>
               <Shop />
             </Suspense>
           }
@@ -74,7 +74,7 @@ function App() {
         <Route
           path="/account/:category"
           element={
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<LoadingHeight100 />}>
               <Account />
             </Suspense>
           }
@@ -82,7 +82,7 @@ function App() {
         <Route
           path="/profile/:category"
           element={
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<LoadingHeight100 />}>
               <Profile />
             </Suspense>
           }
@@ -90,7 +90,7 @@ function App() {
         <Route
           path="/cart"
           element={
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<LoadingHeight100 />}>
               <Cart />
             </Suspense>
           }
@@ -98,7 +98,7 @@ function App() {
         <Route
           path="/verify-email/:token"
           element={
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<LoadingHeight100 />}>
               <EmailVerification />
             </Suspense>
           }
@@ -106,7 +106,7 @@ function App() {
         <Route
           path="/reset-password/:token"
           element={
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<LoadingHeight100 />}>
               <ForgotPasswordVerification />
             </Suspense>
           }
