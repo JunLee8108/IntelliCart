@@ -1,6 +1,17 @@
 .profile-history-container {
-  max-width: 800px;
+  max-width: 1200px;
   min-height: calc(100vh - 10rem);
+  margin-left: auto;
+  margin-right: auto;
   opacity: 0;
   animation: flash 0.7s 0.2s forwards;
+}
+
+.profile-history-header {
+  text-align: center;
+}
+
+.profile-history-icon {
+  width: 22px;
+  height: 22px;
 }
