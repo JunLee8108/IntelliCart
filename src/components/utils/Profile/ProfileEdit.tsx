@@ -9,25 +9,20 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 export const ProfileEdit: React.FC = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [confirmEmail, setConfirmEmail] = useState("");
-  const [isEmailSame, setEmailSame] = useState(false);
+  const [userID, setUserID] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Check if the emails are the same
-    if (email !== confirmEmail) {
-      return setEmailSame(true);
-    }
-
     try {
       let { data } = await axios.post("/profile/edit", {
-        email,
+        userID,
         firstname,
         lastname,
       });
-    } catch (error) {}
+    } catch (error) {
+      alert((error as any).response.data.message);
+    }
   };
 
   useEffect(() => {
@@ -42,7 +37,7 @@ export const ProfileEdit: React.FC = () => {
         });
         setFirstname(data.firstname);
         setLastname(data.lastname);
-        setEmail(data.email);
+        setUserID(data._id);
       } catch (error) {
         alert("Failed to load user information.");
       }
@@ -93,36 +88,6 @@ export const ProfileEdit: React.FC = () => {
               ></input>
               <label htmlFor="last-name">Last Name</label>
             </div>
-
-            <div className="profile-edit-input-container">
-              <input
-                type="email"
-                defaultValue={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email*"
-                id="loginEmail"
-                required
-              ></input>
-              <label htmlFor="loginEmail">Email</label>
-            </div>
-
-            <div className="profile-edit-input-container">
-              <input
-                type="email"
-                defaultValue={confirmEmail}
-                onChange={(e) => setConfirmEmail(e.target.value)}
-                placeholder="Confirm Email*"
-                id="loginEmail-confirm"
-                required
-              ></input>
-              <label htmlFor="loginEmail-confirm">Confirm Email</label>
-            </div>
-
-            {isEmailSame ? (
-              <div className="forgot-passoword-email-notmatch">
-                <p>Emails are not the same!</p>
-              </div>
-            ) : null}
 
             <div className="profile-edit-button-container display-flex">
               <div className="profile-edit-button-flexbox display-flex">

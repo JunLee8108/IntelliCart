@@ -15,3 +15,55 @@
   width: 22px;
   height: 22px;
 }
+
+.profile-upload-input-container {
+  text-align: center;
+}
+
+input[type="file"] {
+  padding: 10px;
+}
+
+input[type="file"]::file-selector-button {
+  padding: 10px;
+  color: #121212;
+  background-color: #fff;
+  margin-right: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #121212;
+  color: white;
+}
+
+.profile-upload-img-container {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.uploaded-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.profile-upload-submit-btn {
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  color: #121212;
+  background-color: #fff;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+.profile-upload-submit-btn:hover {
+  background-color: #121212;
+  color: white;
+}

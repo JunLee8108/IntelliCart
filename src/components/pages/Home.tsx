@@ -1,6 +1,6 @@
 import "./Home.css";
 import { Chatbot } from "../utils/Helpers/Chatbot";
-import { CardData } from "../utils/Data/data";
+import { CardData, CardDescription } from "../utils/Data/data";
 import UserLoginVerification from "../utils/Helpers/UserLoginVerification";
 
 import { useEffect } from "react";
@@ -12,6 +12,15 @@ import CircleLoader from "react-spinners/CircleLoader";
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
+  const isUserLogin = UserLoginVerification();
+
+  const hanldeNavigation = () => {
+    if (isUserLogin.isUserLogin) {
+      navigate("/profile/upload");
+    } else {
+      navigate("/account/login");
+    }
+  };
 
   // For home background animation
   useEffect(() => {
@@ -62,14 +71,12 @@ export const Home: React.FC = () => {
     };
   }, []);
 
-  const isUserLogin = UserLoginVerification();
-
   return (
     <>
       <div className="home-container">
         <div className="home-top-bg-container">
           <div className="home-top-bg1 bg-setting display-flex">
-            <h1>AI-Powered E-Commerce, </h1>
+            <h1>AI-Powered E-Commerce,</h1>
           </div>
           <div className="home-top-bg2 bg-setting display-flex">
             <h1>IntelliCart.</h1>
@@ -103,24 +110,10 @@ export const Home: React.FC = () => {
         <div className="home-card-description display-flex">
           <h2>IntelliCart</h2>
           <p className="home-card-description-laptop">
-            We've seamlessly integrated the latest in machine learning
-            technology to provide a personalized, efficient, and futuristic
-            shopping experience. Whether you're looking for product
-            recommendations tailored just for you, voice-activated searches, or
-            real-time customer service through our intelligent chatbot,
-            IntelliCart is designed to transform how you shop online. Our
-            platform isn't just about buying — it's about experiencing. Upload
-            images, and our advanced image recognition system will find products
-            matching your style. With augmented reality try-ons and dynamic
-            pricing that ensures you always get the best deal, we aim to make
-            every step of your shopping journey intuitive and enjoyable.
+            {CardDescription[0].description}
           </p>
           <p className="home-card-description-mobile">
-            Our platform isn't just about buying — it's about experiencing.
-            Upload images, and our advanced image recognition system will find
-            products matching your style. With augmented reality try-ons and
-            dynamic pricing that ensures you always get the best deal, we aim to
-            make every step of your shopping journey intuitive and enjoyable.
+            {CardDescription[1].description}
           </p>
         </div>
 
@@ -153,17 +146,7 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="home-startBtn display-flex">
-          <button
-            onClick={() => {
-              if (isUserLogin.isUserLogin) {
-                navigate("/profile/upload");
-              } else {
-                navigate("/account/login");
-              }
-            }}
-          >
-            START INTELIICART
-          </button>
+          <button onClick={hanldeNavigation}>START INTELIICART</button>
         </div>
 
         <Chatbot />
