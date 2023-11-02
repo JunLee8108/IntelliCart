@@ -11,10 +11,13 @@
   animation: flash 0.7s 0.2s forwards;
 }
 
-.profile-edit-introduction {
-  padding: 15px;
+.profile-edit-header {
   margin-bottom: 30px;
-  color: #565360;
+}
+
+.profile-edit-icon {
+  width: 22px;
+  height: 22px;
 }
 
 .profile-edit-form {
@@ -30,13 +33,14 @@
 }
 
 .profile-edit-form-title h4 {
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: grey;
+  font-weight: lighter;
   margin-bottom: 10px;
 }
 
 .profile-edit-form-title h2 {
-  font-weight: 400;
+  font-weight: normal;
   letter-spacing: 3px;
 }
 
@@ -69,7 +73,7 @@
 .profile-edit-form form input {
   width: 85%;
   height: 40px;
-  color: #908e9b;
+  color: black;
   border: transparent 2px solid;
   border-bottom: grey 2px solid;
   margin-bottom: 40px;

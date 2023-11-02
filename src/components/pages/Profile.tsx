@@ -1,4 +1,3 @@
-import "./Profile.css";
 import { ProfileEdit } from "../utils/Profile/ProfileEdit";
 import { ProfileUpload } from "../utils/Profile/ProfileUpload";
 import { ProfileHistory } from "../utils/Profile/ProfileHistory";

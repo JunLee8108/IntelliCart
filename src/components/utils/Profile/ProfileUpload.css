@@ -2,5 +2,16 @@
   max-width: 800px;
   min-height: calc(100vh - 10rem);
   opacity: 0;
+  margin-left: auto;
+  margin-right: auto;
   animation: flash 0.7s 0.2s forwards;
+}
+
+.profile-upload-header {
+  text-align: center;
+}
+
+.profile-upload-icon {
+  width: 22px;
+  height: 22px;
 }

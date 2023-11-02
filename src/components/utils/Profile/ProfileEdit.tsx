@@ -3,6 +3,8 @@ import "./ProfileEdit.css";
 import { useState, useEffect } from "react";
 
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export const ProfileEdit: React.FC = () => {
   const [firstname, setFirstname] = useState("");
@@ -52,12 +54,15 @@ export const ProfileEdit: React.FC = () => {
   return (
     <>
       <div className="profile-edit-container">
-        <div className="profile-edit-introduction">
-          <p>
-            Personalize and update your information to make your online
-            experience truly yours.
-          </p>
-        </div>
+        <h2 className="profile-edit-header">
+          Edit Your Profile{" "}
+          <FontAwesomeIcon
+            icon={faUser}
+            style={{ marginLeft: "5px" }}
+            color="gray"
+            className="profile-edit-icon"
+          />
+        </h2>
         <div className="profile-edit-form">
           <div className="profile-edit-form-title">
             <h4>{firstname}'s Profile</h4>
