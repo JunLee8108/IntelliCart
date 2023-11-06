@@ -32,6 +32,12 @@ export const Navbar: React.FC = () => {
   const handleNavbarClick = (index: number, path: string) => {
     setActiveIndex(index);
     navigate(path);
+    if (location.pathname.includes(path)) {
+      navigate("refresh");
+      setTimeout(() => {
+        navigate(path);
+      }, 100);
+    }
   };
 
   const handleSubmenu = (content: string) => {
@@ -39,20 +45,35 @@ export const Navbar: React.FC = () => {
 
     if (contentLowerCase.includes("edit")) {
       navigate("/profile/edit");
+      if (location.pathname.includes("edit")) {
+        navigate("refresh");
+        setTimeout(() => {
+          navigate("/profile/edit");
+        }, 100);
+      }
     } else if (contentLowerCase.includes("history")) {
       navigate("/profile/history");
+      if (location.pathname.includes("history")) {
+        navigate("refresh");
+        setTimeout(() => {
+          navigate("/profile/history");
+        }, 100);
+      }
     } else if (contentLowerCase.includes("upload")) {
       navigate("/profile/upload");
+      if (location.pathname.includes("upload")) {
+        navigate("refresh");
+        setTimeout(() => {
+          navigate("/profile/upload");
+        }, 100);
+      }
     } else if (contentLowerCase.includes("sign out")) {
-      let credentials = {
-        loading: true,
-        user: null,
-        error: null,
-      };
       sessionStorage.removeItem("user");
       setActiveIndex(-1);
-      navigate("/");
-      navigate(0);
+      navigate("refresh");
+      setTimeout(() => {
+        navigate("/");
+      }, 100);
     }
   };
 
@@ -98,13 +119,15 @@ export const Navbar: React.FC = () => {
         setUserLogin(false);
         sessionStorage.removeItem("user");
         setActiveIndex(-1);
-        navigate("/");
-        navigate(0);
+        navigate("refresh");
+        setTimeout(() => {
+          navigate("/");
+        }, 100);
       }
     };
 
     userVerification();
-  }, [location.pathname]);
+  }, [location.pathname, navigate]);
 
   return (
     <>
@@ -184,6 +207,12 @@ export const Navbar: React.FC = () => {
                         }`}
                         onClick={(e) => {
                           navigate("/account/login");
+                          if (location.pathname.includes("/account/login")) {
+                            navigate("refresh");
+                            setTimeout(() => {
+                              navigate("/account/login");
+                            }, 100);
+                          }
                         }}
                       >
                         {navbarItem[index]}
