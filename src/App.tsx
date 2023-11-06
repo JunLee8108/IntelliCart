@@ -5,6 +5,7 @@ import ScrollToTop from "./components/utils/Helpers/ScrollToTop";
 import { Home } from "./components/pages/Home";
 import { Navbar } from "./components/utils/Navbar/Navbar";
 import { Footer } from "./components/utils/Footer/Footer";
+import Empty from "./components/utils/Helpers/Empty";
 import { LoadingHeight100 } from "./components/utils/Helpers/LoadingHeight100";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -63,6 +64,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="refresh" element={<Empty />} />
+
         <Route
           path="/shop"
           element={
